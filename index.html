@@ -2,34 +2,161 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jack Moloney — Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Jack Moloney — Quant Portfolio</title>
+
+    <!-- Use upgraded stylesheet -->
+    <link rel="stylesheet" href="styles2.css">
+
+    <!-- === HOMEPAGE-ONLY REFINEMENTS === -->
+    <style>
+
+    /* Make base body transparent — we use global background layer */
+    body {
+        background: transparent;
+    }
+
+    /* HERO enhancements */
+    .hero-area {
+        height: 90vh;
+        background: radial-gradient(circle at top,
+                    rgba(11,12,16,0.35) 0%,
+                    rgba(11,12,16,0.25) 35%,
+                    rgba(11,12,16,0.15) 60%,
+                    rgba(11,12,16,0.10) 100%);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(102,252,241,0.12);
+    }
+
+    .hero-name {
+        font-size: 88px;
+        letter-spacing: 7px;
+        opacity: 0;
+        animation: fadeHero 2s ease forwards;
+    }
+
+    @keyframes fadeHero {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Intro strip */
+    .intro-strip {
+        max-width: 1100px;
+        margin: -40px auto 40px;
+        padding: 28px 40px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(102,252,241,0.20);
+        backdrop-filter: blur(18px);
+        text-align: center;
+        opacity: 0;
+        animation: stripFade 1.8s ease forwards;
+    }
+
+    @keyframes stripFade {
+        to { opacity: 1; }
+    }
+
+    .intro-strip p {
+        font-size: 20px;
+        color: #E6E6E6;
+        line-height: 1.7;
+        max-width: 850px;
+        margin: auto;
+    }
+
+    /* Profile card hover enhancements */
+    .profile-card-home {
+        transition: transform 0.45s ease, box-shadow 0.45s ease;
+        transform-style: preserve-3d;
+        cursor: pointer;
+    }
+
+    .profile-card-home:hover {
+        transform: rotateX(6deg) rotateY(6deg) scale(1.02);
+        box-shadow: 0 0 45px rgba(102,252,241,0.35);
+    }
+
+    /* Project tiles stronger effect */
+    .project-tile {
+        transition: 0.4s ease;
+        cursor: pointer;
+    }
+
+    .project-tile:hover {
+        transform: translateY(-12px) scale(1.05);
+        box-shadow: 0 0 42px rgba(102,252,241,0.50);
+    }
+
+    .project-tile h3 {
+        font-size: 24px;
+    }
+
+    /* Experience timeline improvements */
+    .timeline-content {
+        border-radius: 18px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .timeline-content:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 0 38px rgba(102,252,241,0.45);
+    }
+
+    /* Skills — more interactive */
+    .tool-card {
+        width: 185px;
+        height: 185px;
+    }
+
+    .tool-card:hover {
+        transform: translateY(-12px) scale(1.1);
+        box-shadow: 0 0 40px rgba(102,252,241,0.55);
+    }
+
+    </style>
+
+    <!-- Homepage JS -->
     <script src="homepage.js" defer></script>
 </head>
 
 <body>
 
-<!-- FLOATING LINKEDIN BUTTON -->
+<!-- ============================================================
+     FULL-PAGE CITADEL BACKGROUND LAYER
+============================================================ -->
+<div id="global-background">
+    <canvas id="global-particles"></canvas>
+    <div class="global-grid-overlay"></div>
+</div>
+
+<!-- ============================================================
+     FLOATING LINKEDIN BUTTON
+============================================================ -->
 <a href="https://www.linkedin.com/in/your-link-here" target="_blank" class="floating-linkedin">
-    <img src="assets/linkedin.png" alt="Linkedin" class="linkedin-icon">
+    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
     <span>Linkedin</span>
 </a>
 
-<!-- HERO SECTION -->
+
+<!-- ============================================================
+     HERO SECTION
+============================================================ -->
 <header class="hero-area">
     <div class="hero-content fade-in">
         <h1 class="hero-name">Jack Moloney</h1>
         <p class="role-line"><span id="typed"></span></p>
     </div>
 
-    <!-- particle background canvas -->
     <canvas id="particle-canvas"></canvas>
-
-    <!-- animated grid overlay -->
     <div class="grid-overlay"></div>
 </header>
 
-<!-- PROFILE CARD -->
+
+
+<!-- ============================================================
+     PROFILE CARD
+============================================================ -->
 <section class="profile-wrapper fade-in">
     <div class="profile-card-home">
         <img src="assets/profile.jpg" class="profile-photo-home">
@@ -37,46 +164,75 @@
         <div>
             <h2 class="profile-heading">Hello, I'm Jack</h2>
             <p class="profile-description">
-                I build quantitative tools that turn financial data into decision-making insights.
-                From stochastic simulations to portfolio analytics, I specialize in Python-driven modelling
-                built with precision, clarity, and high-quality visualization.
+                I specialise in Python-driven quantitative development: stochastic models,
+                simulation engines, portfolio analytics and financial visualisation.
+                My focus is producing structured, high-quality tooling for real-world decision support.
             </p>
             <a href="mailto:jackmoloneyyy@gmail.com" class="profile-btn-home">Contact Me</a>
         </div>
     </div>
 </section>
 
-<!-- PROJECTS SHOWCASE -->
+<!-- ============================================================
+     CURRENTLY WORKING ON (TWO-COLUMN)
+============================================================ -->
+<section class="current-work-section fade-in">
+    <h2 class="section-title">Currently Working On</h2>
+
+    <div class="current-work-grid">
+
+        <!-- LEFT: Description -->
+        <div class="current-work-card current-work-textcard">
+            <h3>Monte Carlo Market Engine</h3>
+            <p>
+                Building a next-generation <strong>multi-asset Monte Carlo simulator</strong> designed to
+                capture volatility clustering, regime shifts, tail-risk behaviour, and realistic price-path
+                dynamics.  
+                <br><br>
+                The system will evolve into a full <strong>scenario generator</strong> for stress testing
+                portfolio allocations under extreme market conditions.
+            </p>
+        </div>
+
+        <!-- RIGHT: Image -->
+        <div class="current-work-card current-work-imagecard">
+            <img src="assets/montecarlo2.png" alt="Work In Progress">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PROJECT SHOWCASE
+============================================================ -->
 <section class="project-showcase fade-in">
-    <h2 class="section-title">My Projects</h2>
+    <h2 class="section-title">Previous Projects</h2>
 
     <div class="projects-grid">
 
         <a href="riskanalysis.html" class="project-tile">
-            <div class="tile-content">
-                <h3>Portfolio Risk Analyzer</h3>
-                <p>Quantitative breakdown of risk, return, covariance, Sharpe ratios & more.</p>
-            </div>
+            <h3>Portfolio Risk Analyzer</h3>
+            <p>Multi-asset risk modelling, covariance, Sharpe, volatility analytics & more.</p>
         </a>
 
         <a href="random-walk.html" class="project-tile">
-            <div class="tile-content">
-                <h3>Random Walk Simulator</h3>
-                <p>Stochastic modeling of market randomness using Monte Carlo principles.</p>
-            </div>
+            <h3>Random Walk Simulator</h3>
+            <p>Monte Carlo price-path simulation with Gaussian shocks and uncertainty modelling.</p>
         </a>
 
         <a href="lennard-jones.html" class="project-tile">
-            <div class="tile-content">
-                <h3>Lennard-Jones Molecular Simulation</h3>
-                <p>Dynamic modeling of particle forces & energy landscapes.</p>
-            </div>
+            <h3>Lennard-Jones Simulation</h3>
+            <p>Molecular force simulations visualised through numerical time integration.</p>
         </a>
 
     </div>
 </section>
 
-<!-- EXPERIENCE SECTION -->
+
+<!-- ============================================================
+     EXPERIENCE
+============================================================ -->
 <section class="experience-section fade-in">
     <h2 class="section-title">Experience</h2>
 
@@ -85,73 +241,122 @@
         <div class="timeline-item reveal">
             <div class="timeline-dot pulse"></div>
             <div class="timeline-line"></div>
-            <div class="timeline-content glass-card interactive">
+            <div class="timeline-content">
                 <h3>Quantitative Research Student</h3>
                 <h4>University Project • 2024–Present</h4>
-                <p>
-                    Conducting quantitative analysis using Python, focusing on stochastic modelling,
-                    portfolio analytics, Monte Carlo simulation, and financial data visualization.
-                </p>
+                <p>Research-driven modelling, Monte Carlo simulation, volatility & portfolio analysis.</p>
             </div>
         </div>
 
         <div class="timeline-item reveal">
             <div class="timeline-dot pulse"></div>
             <div class="timeline-line"></div>
-            <div class="timeline-content glass-card interactive">
-                <h3>Personal Quant Development</h3>
-                <h4>Independent • 2023–Present</h4>
-                <p>
-                    Developing quantitative tools including random walk engines, Lennard-Jones simulations,
-                    and portfolio risk assessment systems using Python, NumPy, & Matplotlib.
-                </p>
+            <div class="timeline-content">
+                <h3>Independent Quant Development</h3>
+                <h4>2023–Present</h4>
+                <p>Simulation engines, data pipelines, and technical modelling in Python.</p>
             </div>
         </div>
 
         <div class="timeline-item reveal">
             <div class="timeline-dot pulse"></div>
             <div class="timeline-line"></div>
-            <div class="timeline-content glass-card interactive">
+            <div class="timeline-content">
                 <h3>Software & Data Projects</h3>
-                <h4>Independent • 2022–Present</h4>
-                <p>
-                    Built Python applications, automated scripts, and data workflows for numerical
-                    experimentation, pattern analysis, and simulation testing.
-                </p>
+                <h4>2022–Present</h4>
+                <p>Building experimental systems for analysis, automation, modelling, and insight extraction.</p>
             </div>
         </div>
 
     </div>
 </section>
 
-<!-- TOOLS SECTION -->
+
+<!-- ============================================================
+     SKILLS
+============================================================ -->
 <section class="tools-section fade-in">
-    <h2 class="section-title">Tools & Technologies</h2>
+    <h2 class="section-title">Skills</h2>
 
     <div class="tools-grid">
         <div class="tool-card">
             <img src="assets/python.png" class="tool-logo">
-            <p>Python</p>
+            <p class="tool-label">Python</p>
         </div>
 
         <div class="tool-card">
             <img src="assets/C.png" class="tool-logo">
-            <p>C</p>
+            <p class="tool-label">C</p>
         </div>
 
         <div class="tool-card">
             <img src="assets/matlab.png" class="tool-logo">
-            <p>Matlab</p>
+            <p class="tool-label">MATLAB</p>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
 <footer class="footer fade-in">
     <p>© 2025 Jack Moloney</p>
     <p><a href="mailto:jackmoloneyyy@gmail.com">jackmoloneyyy@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/your-link-here" target="_blank">Linkedin</a></p>
+    <p><a href="https://www.linkedin.com/in/your-link-here" target="_blank">LinkedIn</a></p>
 </footer>
+
+
+<!-- ============================================================
+     FULL-PAGE PARTICLES SCRIPT
+============================================================ -->
+<script>
+const canvas2 = document.getElementById("global-particles");
+const ctx2 = canvas2.getContext("2d");
+
+function resizeGlobalCanvas() {
+    canvas2.width = window.innerWidth;
+    canvas2.height = window.innerHeight;
+}
+resizeGlobalCanvas();
+window.addEventListener("resize", resizeGlobalCanvas);
+
+const globalParticles = [];
+const NUM_GLOBAL = 70;
+
+for (let i = 0; i < NUM_GLOBAL; i++) {
+    globalParticles.push({
+        x: Math.random() * canvas2.width,
+        y: Math.random() * canvas2.height,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        size: 1.8 + Math.random() * 1.8,
+    });
+}
+
+function drawGlobalParticles() {
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+    globalParticles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = canvas2.width;
+        if (p.x > canvas2.width) p.x = 0;
+        if (p.y < 0) p.y = canvas2.height;
+        if (p.y > canvas2.height) p.y = 0;
+
+        ctx2.fillStyle = "rgba(102, 252, 241, 0.70)";
+        ctx2.beginPath();
+        ctx2.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx2.fill();
+    });
+
+    requestAnimationFrame(drawGlobalParticles);
+}
+
+drawGlobalParticles();
+</script>
 
 </body>
 </html>

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lennard-Jones Simulation — Jack Murphy</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lennard-Jones Simulation — Jack Moloney</title>
+    <link rel="stylesheet" href="styles2.css">
     <script src="homepage.js" defer></script>
 </head>
 
@@ -15,90 +15,146 @@
     <span>LinkedIn</span>
 </a>
 
-<!-- HERO SECTION (shares hero-area for particles) -->
-<header class="hero-area lj-hero">
-    <div class="hero-content fade-in lj-hero-content">
-        <p class="lj-pill">Simulation • Physics • Python</p>
-        <h1 class="hero-name lj-title">Lennard-Jones Particle Simulation</h1>
-        <p class="lj-subtitle">
-            A molecular dynamics model of interacting particles governed by the Lennard-Jones potential.
+<!-- HERO SECTION (Same structure as Risk Analysis) -->
+<header class="hero-area">
+    <div class="hero-content fade-in">
+        <h1 class="hero-name">Lennard-Jones Simulation</h1>
+        <p class="project-tagline">
+            Molecular Dynamics • Inter-Particle Forces • Potential Energy
         </p>
+
+        <!-- hidden typed span (keeps homepage.js stable) -->
+        <p class="role-line project-role-line"><span id="typed"></span></p>
     </div>
 
     <canvas id="particle-canvas"></canvas>
     <div class="grid-overlay"></div>
 </header>
 
-<!-- MAIN FEATURED CARD -->
+
+<!-- MAIN FEATURED CARD (Risk-Analysis style) -->
 <section class="lj-main fade-in">
     <div class="lj-main-card">
+
         <div class="lj-main-text">
             <h2>Overview</h2>
             <p>
-                This project simulates particles moving under the Lennard-Jones potential — a classical model
-                combining short-range repulsion and longer-range attraction. The system showcases realistic
-                molecular behaviour such as clustering, equilibrium spacing, and energy minimisation.
+                This simulation models interacting particles governed by the classical
+                <strong>Lennard-Jones potential</strong>.  
+                The LJ force captures both the short-range repulsion (when particles get too close)
+                and longer-range attraction, producing realistic molecular clustering and stability.
+                <br><br>
+                By integrating particle motion over time, the system reveals how energy minimisation
+                naturally leads to equilibrium spacing and emergent structure.
             </p>
 
             <div class="lj-tags">
                 <span>Python</span>
-                <span>Numerical Methods</span>
                 <span>Molecular Dynamics</span>
+                <span>Numerical Integration</span>
                 <span>Matplotlib</span>
             </div>
         </div>
 
         <div class="lj-main-visual">
-            <!-- Replace this with your favourite key image -->
-            <img src="assets/lj1.png" alt="Lennard-Jones Particle Snapshot">
+            <img src="assets/lj1.png" alt="Lennard-Jones System Snapshot">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SIMULATION SNAPSHOT (COMPACT VERSION) -->
+<section class="snapshot-section fade-in">
+    <h2 class="section-title">Simulation Snapshot</h2>
+    <p class="snapshot-intro">
+        Key parameters that govern and define the behaviour of the simulation.
+    </p>
+
+    <!-- 2×2 compact metric grid -->
+    <div class="snapshot-metric-grid">
+        <div class="snapshot-card">
+            <span class="snapshot-label">Force Model</span>
+            <span class="snapshot-value">Lennard-Jones</span>
+            <p>Repulsive + attractive inter-particle interaction.</p>
+        </div>
+
+        <div class="snapshot-card">
+            <span class="snapshot-label">Dynamics</span>
+            <span class="snapshot-value">Time Integration</span>
+            <p>Numerical updates of positions & velocities each timestep.</p>
+        </div>
+
+        <div class="snapshot-card">
+            <span class="snapshot-label">Particles</span>
+            <span class="snapshot-value">Configurable</span>
+            <p>Supports an arbitrary number of simulated bodies.</p>
+        </div>
+
+        <div class="snapshot-card">
+            <span class="snapshot-label">Energy</span>
+            <span class="snapshot-value">Stabilising</span>
+            <p>System relaxes toward low-energy equilibrium states.</p>
+        </div>
+    </div>
+
+    <!-- Smaller visual underneath -->
+    <div class="snapshot-visual">
+        <div class="ra-main-card">
+            <img src="assets/LJ_Figure3.png" alt="LJ Simulation Frame">
+            <p class="ra-main-caption">Representative simulation frame.</p>
         </div>
     </div>
 </section>
 
-<!-- KEY VISUALS -->
-<section class="lj-visuals fade-in">
+
+<!-- VISUAL DASHBOARD -->
+<section class="project-gallery fade-in">
     <h2 class="section-title">Key Visuals</h2>
 
-    <div class="lj-visual-grid">
-        <div class="lj-visual-card">
-            <img src="assets/LJ_Figure3.png" alt="Particle Initialisation">
+    <div class="ra-fig-grid">
+
+        <div class="ra-fig-card">
+            <img src="assets/LJ_Figure3.png" alt="Particle Setup">
             <h3>Particle Configuration</h3>
             <p>
-                Initial layout of particles in the simulation box, showing starting positions before forces evolve.
+                Starting positions before forces evolve the system.
             </p>
         </div>
 
-        <div class="lj-visual-card">
-            <img src="assets/LJ_Figure1.png" alt="Potential Curve">
+        <div class="ra-fig-card">
+            <img src="assets/LJ_Figure1.png" alt="LJ Potential Curve">
             <h3>Lennard-Jones Potential</h3>
             <p>
-                The characteristic potential energy curve with a clear equilibrium distance at the energy minimum.
+                Characteristic LJ curve showing equilibrium distance at the minimum.
             </p>
         </div>
 
-        <div class="lj-visual-card">
-            <img src="assets/LJ_Figure2.png" alt="Trajectory Simulation">
+        <div class="ra-fig-card">
+            <img src="assets/LJ_Figure2.png" alt="Trajectory Evolution">
             <h3>Dynamic Trajectories</h3>
             <p>
-                Particle motion over time, revealing stable structures and fluctuating energy dynamics.
+                How particles move and cluster under attractive & repulsive forces.
             </p>
         </div>
+
     </div>
 </section>
 
-<!-- HOW IT WORKS (TIMELINE STYLE) -->
-<section class="lj-process fade-in">
-    <h2 class="section-title">How the Simulation Works</h2>
+
+<!-- METHODOLOGY (Risk Analysis style timeline) -->
+<section class="project-process fade-in">
+    <h2 class="section-title">How It Works</h2>
 
     <div class="process-timeline">
 
         <div class="process-step reveal">
             <div class="process-dot"></div>
             <div class="process-card">
-                <h3>1. Force Model</h3>
+                <h3>1. Compute Forces</h3>
                 <p>
-                    The Lennard-Jones potential is defined and used to compute pairwise forces between particles
-                    based on their separation distances.
+                    For every particle pair, the Lennard-Jones formula determines repulsion or attraction
+                    based on separation distance.
                 </p>
             </div>
         </div>
@@ -106,10 +162,10 @@
         <div class="process-step reveal">
             <div class="process-dot"></div>
             <div class="process-card">
-                <h3>2. Time Integration</h3>
+                <h3>2. Integrate Motion</h3>
                 <p>
-                    Using a numerical integration scheme (e.g. Verlet or Euler), positions and velocities
-                    are updated step-by-step to evolve the system.
+                    A numerical scheme (Euler / Verlet) updates particle velocities and positions at
+                    each timestep.
                 </p>
             </div>
         </div>
@@ -117,10 +173,10 @@
         <div class="process-step reveal">
             <div class="process-dot"></div>
             <div class="process-card">
-                <h3>3. Energy & Stability</h3>
+                <h3>3. Observe Equilibrium</h3>
                 <p>
-                    Over time, the system tends towards lower energy configurations, demonstrating clustering
-                    and stable structures around the potential minimum.
+                    The system evolves toward lower-energy states, producing stable particle spacing
+                    and emergent structures.
                 </p>
             </div>
         </div>
@@ -128,10 +184,20 @@
     </div>
 </section>
 
+
+<!-- TECH STRIP -->
+<section class="project-tech-strip fade-in">
+    <p>
+        Developed with <strong>Python</strong>, <strong>NumPy</strong> and
+        <strong>Matplotlib</strong>, applying classical molecular-dynamics techniques.
+    </p>
+</section>
+
+
 <!-- FOOTER -->
 <footer class="footer fade-in">
-    <p>© 2025 Jack Murphy</p>
-    <p><a href="mailto:your_email@example.com">your_email@example.com</a></p>
+    <p>© 2025 Jack Moloney</p>
+    <p><a href="mailto:jackmoloneyyy@gmail.com">jackmoloneyyy@gmail.com</a></p>
     <p><a href="https://www.linkedin.com/in/your-link-here" target="_blank">LinkedIn</a></p>
 </footer>
 
