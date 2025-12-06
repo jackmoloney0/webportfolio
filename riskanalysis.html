@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Risk Analyzer — Jack Murphy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="homepage.js" defer></script>
+</head>
+
+<body>
+
+<!-- FLOATING LINKEDIN BUTTON -->
+<a href="https://www.linkedin.com/in/your-link-here" target="_blank" class="floating-linkedin">
+    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
+    <span>LinkedIn</span>
+</a>
+
+<!-- HERO SECTION (reuses hero-area so particles work) -->
+<header class="hero-area">
+    <div class="hero-content fade-in">
+        <h1 class="hero-name">Portfolio Risk Analyzer</h1>
+        <p class="project-tagline">Multi-asset risk, return & volatility in one clean dashboard.</p>
+
+        <!-- hidden typed span so homepage.js doesn't break on this page -->
+        <p class="role-line project-role-line"><span id="typed"></span></p>
+    </div>
+
+    <canvas id="particle-canvas"></canvas>
+    <div class="grid-overlay"></div>
+</header>
+
+<main class="project-shell">
+
+    <!-- EXECUTIVE SNAPSHOT -->
+    <section class="ra-layout fade-in">
+        <div class="ra-summary">
+            <h2>Executive Snapshot</h2>
+            <p>
+                This Python-based tool ingests live market data, computes asset-level statistics,
+                and aggregates them into a single portfolio view — covering annualised return,
+                volatility, covariance structure, and Sharpe ratio.
+            </p>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <span class="metric-label">Focus</span>
+                    <span class="metric-value">Risk & Return</span>
+                    <p>Annualised return and volatility across a custom basket of assets.</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-label">Method</span>
+                    <span class="metric-value">Covariance Model</span>
+                    <p>Portfolio risk computed using covariance matrices & weight vectors.</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-label">Tech</span>
+                    <span class="metric-value">Python Stack</span>
+                    <p>Built with NumPy, Pandas, Matplotlib, and yfinance for price data.</p>
+                </div>
+            </div>
+
+            <a href="https://github.com/yourrepo" target="_blank" class="ra-cta">
+                View Source Code on GitHub
+            </a>
+        </div>
+
+        <div class="ra-main-visual">
+            <div class="ra-main-card">
+                <img src="assets/Figure_2.png" alt="Portfolio Value Over Time">
+                <p class="ra-main-caption">Portfolio growth curve — normalised to 1.0 at inception.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISUAL DASHBOARD -->
+    <section class="project-gallery fade-in">
+        <h2 class="section-title">Visual Dashboard</h2>
+
+        <div class="ra-fig-grid">
+            <div class="ra-fig-card">
+                <img src="assets/Figure_1.png" alt="Portfolio Allocation">
+                <h3>Allocation Map</h3>
+                <p>Weight distribution across assets, surfaced with a clean pie-style breakdown.</p>
+            </div>
+
+            <div class="ra-fig-card">
+                <img src="assets/Figure_3.png" alt="Risk vs Return">
+                <h3>Risk vs Return</h3>
+                <p>Annualised volatility vs expected return for each asset and the portfolio.</p>
+            </div>
+
+            <div class="ra-fig-card">
+                <img src="assets/Figure_4.png" alt="Rolling Volatility">
+                <h3>Rolling Volatility</h3>
+                <p>30-day rolling volatility highlights periods of elevated market stress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="project-process fade-in">
+        <h2 class="section-title">Methodology</h2>
+
+        <div class="process-timeline">
+
+            <div class="process-step reveal">
+                <div class="process-dot"></div>
+                <div class="process-card">
+                    <h3>1. Data Ingestion</h3>
+                    <p>
+                        Uses <code>yfinance</code> to download adjusted closing prices for a set of tickers,
+                        aligned into a clean historical price matrix.
+                    </p>
+                </div>
+            </div>
+
+            <div class="process-step reveal">
+                <div class="process-dot"></div>
+                <div class="process-card">
+                    <h3>2. Return & Covariance Model</h3>
+                    <p>
+                        Computes daily returns, annualises mean and volatility, and constructs
+                        a covariance matrix to capture relationships between assets.
+                    </p>
+                </div>
+            </div>
+
+            <div class="process-step reveal">
+                <div class="process-dot"></div>
+                <div class="process-card">
+                    <h3>3. Portfolio Construction</h3>
+                    <p>
+                        Applies user-defined weights to derive portfolio-level return, risk,
+                        and Sharpe ratio, then visualises key outputs in a dark, Citadel-style layout.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer fade-in">
+    <p>© 2025 Jack Murphy</p>
+    <p><a href="mailto:your_email@example.com">your_email@example.com</a></p>
+    <p><a href="https://www.linkedin.com/in/your-link-here" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Walk Simulator — Jack Murphy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="homepage.js" defer></script>
+</head>
+
+<body>
+
+<!-- FLOATING LINKEDIN BUTTON -->
+<a href="https://www.linkedin.com/in/your-link-here" target="_blank" class="floating-linkedin">
+    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
+    <span>LinkedIn</span>
+</a>
+
+<!-- HERO (Citadel + Apple style) -->
+<header class="hero-area project-hero project-hero--randomwalk">
+    <canvas id="particle-canvas"></canvas>
+    <div class="grid-overlay"></div>
+
+    <div class="project-hero-inner fade-in">
+        <div class="project-hero-text">
+            <p class="project-tag">Simulation • Monte Carlo • Stochastic Processes</p>
+            <h1 class="project-title">Random Walk Simulator</h1>
+            <p class="project-subtitle">
+                A visual engine for exploring how uncertainty compounds over time in asset prices.
+            </p>
+        </div>
+
+        <div class="project-hero-card">
+            <h3>Project Snapshot</h3>
+            <ul>
+                <li>Simulates hundreds of price paths in one run.</li>
+                <li>Configurable steps, volatility and starting value.</li>
+                <li>Outputs distributions, trajectories and volatility patterns.</li>
+                <li>Built with Python, NumPy & Matplotlib.</li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- OVERVIEW + KEY CONCEPTS -->
+<section class="project-split fade-in">
+    <div class="project-split-main">
+        <h2>Overview</h2>
+        <p>
+            This simulator models a discrete-time random walk for a synthetic “stock” price.
+            At each step, the price is updated by adding a random shock drawn from a Gaussian
+            distribution. By running many paths in parallel, you can see how small random
+            changes accumulate into very different end prices.
+        </p>
+        <p>
+            The page is designed to feel like a cross between a <strong>quant lab interface</strong>
+            and a <strong>polished product page</strong>: dark, focused, but clean and minimal so
+            the math and visuals remain the centre of attention.
+        </p>
+    </div>
+
+    <div class="project-split-side">
+        <h3>Key Concepts</h3>
+        <ul class="chip-list">
+            <li class="chip">Random Walk</li>
+            <li class="chip">Monte Carlo</li>
+            <li class="chip">Gaussian Noise</li>
+            <li class="chip">Path Dependency</li>
+            <li class="chip">Volatility</li>
+        </ul>
+    </div>
+</section>
+
+<!-- GALLERY / FIGURES -->
+<section class="project-gallery fade-in">
+    <h2 class="section-title">Simulation Outputs</h2>
+
+    <div class="gallery-grid">
+        <div class="gallery-card">
+            <img src="assets/randomwalk1.png" alt="Multiple random walk paths">
+            <p>Multiple random walk paths diverging over time, illustrating uncertainty growth.</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="assets/Figure_2.2.png" alt="Single path example">
+            <p>Single-path focus view showing the step-by-step behaviour of a simulated asset.</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="assets/Figure_2.1.png" alt="Distribution of final prices">
+            <p>Histogram of final prices across simulations, connecting path behaviour to
+               probabilistic outcomes.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PARAMETERS / SETTINGS SECTION -->
+<section class="project-metrics fade-in">
+    <h2 class="section-title">Simulation Parameters</h2>
+
+    <div class="metric-row">
+        <div class="metric-card">
+            <h3>Number of Paths</h3>
+            <p>Runs hundreds of independent simulations to form a distribution of outcomes.</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Steps per Path</h3>
+            <p>Each path is evolved over many time steps to show long-horizon behaviour.</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Volatility Input</h3>
+            <p>Volatility controls the scale of each shock, directly impacting dispersion.</p>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS TIMELINE -->
+<section class="project-process fade-in">
+    <h2 class="section-title">How It Works</h2>
+
+    <div class="process-timeline">
+
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>1. Initialise</h3>
+                <p>
+                    Set a starting price <code>S₀</code>, choose the number of paths, steps,
+                    and volatility level.
+                </p>
+            </div>
+        </div>
+
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>2. Evolve the Paths</h3>
+                <p>
+                    At each time step, update: <code>S(t+1) = S(t) + ε</code>,
+                    where <code>ε ~ N(0, σ)</code>. Each path evolves independently.
+                </p>
+            </div>
+        </div>
+
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>3. Analyse the Spread</h3>
+                <p>
+                    Compare trajectories, inspect the final price distribution, and link visual
+                    uncertainty to statistical intuition about volatility and risk.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- TECH STACK STRIP -->
+<section class="project-tech-strip fade-in">
+    <p>Built with <strong>Python</strong>, <strong>NumPy</strong> and <strong>Matplotlib</strong> in a
+       research-style workflow, designed for clarity and experimentation.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer fade-in">
+    <p>© 2025 Jack Murphy</p>
+    <p><a href="mailto:your_email@example.com">your_email@example.com</a></p>
+    <p><a href="https://www.linkedin.com/in/your-link-here" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>

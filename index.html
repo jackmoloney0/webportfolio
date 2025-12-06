@@ -2,37 +2,156 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jack M — Quant Portfolio</title>
+    <title>Jack Moloney — Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="homepage.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>Jack M</h1>
-        <p>Student • Aspiring Quant • Python & Finance Projects</p>
-        <a class="btn" href="resume.pdf">Download Resume</a>
-    </header>
 
-    <section class="projects">
-        <h2>Featured Projects</h2>
+<!-- FLOATING LINKEDIN BUTTON -->
+<a href="https://www.linkedin.com/in/your-link-here" target="_blank" class="floating-linkedin">
+    <img src="assets/linkedin.png" alt="Linkedin" class="linkedin-icon">
+    <span>Linkedin</span>
+</a>
 
-        <div class="project-card">
-            <h3>Portfolio Risk & Return Analyzer</h3>
-            <p>A quantitative Python tool that analyzes stock portfolios using volatility, covariance matrices, Monte Carlo concepts, and dark-themed visualizations.</p>
-            <a class="btn" href="projects.html">View Project</a>
+<!-- HERO SECTION -->
+<header class="hero-area">
+    <div class="hero-content fade-in">
+        <h1 class="hero-name">Jack Moloney</h1>
+        <p class="role-line"><span id="typed"></span></p>
+    </div>
+
+    <!-- particle background canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- animated grid overlay -->
+    <div class="grid-overlay"></div>
+</header>
+
+<!-- PROFILE CARD -->
+<section class="profile-wrapper fade-in">
+    <div class="profile-card-home">
+        <img src="assets/profile.jpg" class="profile-photo-home">
+
+        <div>
+            <h2 class="profile-heading">Hello, I'm Jack</h2>
+            <p class="profile-description">
+                I build quantitative tools that turn financial data into decision-making insights.
+                From stochastic simulations to portfolio analytics, I specialize in Python-driven modelling
+                built with precision, clarity, and high-quality visualization.
+            </p>
+            <a href="mailto:jackmoloneyyy@gmail.com" class="profile-btn-home">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS SHOWCASE -->
+<section class="project-showcase fade-in">
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="projects-grid">
+
+        <a href="riskanalysis.html" class="project-tile">
+            <div class="tile-content">
+                <h3>Portfolio Risk Analyzer</h3>
+                <p>Quantitative breakdown of risk, return, covariance, Sharpe ratios & more.</p>
+            </div>
+        </a>
+
+        <a href="random-walk.html" class="project-tile">
+            <div class="tile-content">
+                <h3>Random Walk Simulator</h3>
+                <p>Stochastic modeling of market randomness using Monte Carlo principles.</p>
+            </div>
+        </a>
+
+        <a href="lennard-jones.html" class="project-tile">
+            <div class="tile-content">
+                <h3>Lennard-Jones Molecular Simulation</h3>
+                <p>Dynamic modeling of particle forces & energy landscapes.</p>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section class="experience-section fade-in">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item reveal">
+            <div class="timeline-dot pulse"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content glass-card interactive">
+                <h3>Quantitative Research Student</h3>
+                <h4>University Project • 2024–Present</h4>
+                <p>
+                    Conducting quantitative analysis using Python, focusing on stochastic modelling,
+                    portfolio analytics, Monte Carlo simulation, and financial data visualization.
+                </p>
+            </div>
         </div>
 
-        <div class="project-card">
-            <h3>Random Walk Stock Simulator</h3>
-            <p>A simulation project using stochastic processes to model hypothetical stock prices.</p>
-            <a class="btn" href="projects.html">View Project</a>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot pulse"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content glass-card interactive">
+                <h3>Personal Quant Development</h3>
+                <h4>Independent • 2023–Present</h4>
+                <p>
+                    Developing quantitative tools including random walk engines, Lennard-Jones simulations,
+                    and portfolio risk assessment systems using Python, NumPy, & Matplotlib.
+                </p>
+            </div>
         </div>
 
-    </section>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot pulse"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content glass-card interactive">
+                <h3>Software & Data Projects</h3>
+                <h4>Independent • 2022–Present</h4>
+                <p>
+                    Built Python applications, automated scripts, and data workflows for numerical
+                    experimentation, pattern analysis, and simulation testing.
+                </p>
+            </div>
+        </div>
 
-    <footer>
-        <p>Contact: your_email@example.com</p>
-        <p><a href="https://www.linkedin.com">LinkedIn</a></p>
-    </footer>
+    </div>
+</section>
+
+<!-- TOOLS SECTION -->
+<section class="tools-section fade-in">
+    <h2 class="section-title">Tools & Technologies</h2>
+
+    <div class="tools-grid">
+        <div class="tool-card">
+            <img src="assets/python.png" class="tool-logo">
+            <p>Python</p>
+        </div>
+
+        <div class="tool-card">
+            <img src="assets/C.png" class="tool-logo">
+            <p>C</p>
+        </div>
+
+        <div class="tool-card">
+            <img src="assets/matlab.png" class="tool-logo">
+            <p>Matlab</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer fade-in">
+    <p>© 2025 Jack Moloney</p>
+    <p><a href="mailto:jackmoloneyyy@gmail.com">jackmoloneyyy@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/your-link-here" target="_blank">Linkedin</a></p>
+</footer>
+
 </body>
 </html>

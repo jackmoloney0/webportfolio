@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lennard-Jones Simulation — Jack Murphy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="homepage.js" defer></script>
+</head>
+
+<body>
+
+<!-- FLOATING LINKEDIN BUTTON -->
+<a href="https://www.linkedin.com/in/your-link-here" target="_blank" class="floating-linkedin">
+    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
+    <span>LinkedIn</span>
+</a>
+
+<!-- HERO SECTION (shares hero-area for particles) -->
+<header class="hero-area lj-hero">
+    <div class="hero-content fade-in lj-hero-content">
+        <p class="lj-pill">Simulation • Physics • Python</p>
+        <h1 class="hero-name lj-title">Lennard-Jones Particle Simulation</h1>
+        <p class="lj-subtitle">
+            A molecular dynamics model of interacting particles governed by the Lennard-Jones potential.
+        </p>
+    </div>
+
+    <canvas id="particle-canvas"></canvas>
+    <div class="grid-overlay"></div>
+</header>
+
+<!-- MAIN FEATURED CARD -->
+<section class="lj-main fade-in">
+    <div class="lj-main-card">
+        <div class="lj-main-text">
+            <h2>Overview</h2>
+            <p>
+                This project simulates particles moving under the Lennard-Jones potential — a classical model
+                combining short-range repulsion and longer-range attraction. The system showcases realistic
+                molecular behaviour such as clustering, equilibrium spacing, and energy minimisation.
+            </p>
+
+            <div class="lj-tags">
+                <span>Python</span>
+                <span>Numerical Methods</span>
+                <span>Molecular Dynamics</span>
+                <span>Matplotlib</span>
+            </div>
+        </div>
+
+        <div class="lj-main-visual">
+            <!-- Replace this with your favourite key image -->
+            <img src="assets/lj1.png" alt="Lennard-Jones Particle Snapshot">
+        </div>
+    </div>
+</section>
+
+<!-- KEY VISUALS -->
+<section class="lj-visuals fade-in">
+    <h2 class="section-title">Key Visuals</h2>
+
+    <div class="lj-visual-grid">
+        <div class="lj-visual-card">
+            <img src="assets/LJ_Figure3.png" alt="Particle Initialisation">
+            <h3>Particle Configuration</h3>
+            <p>
+                Initial layout of particles in the simulation box, showing starting positions before forces evolve.
+            </p>
+        </div>
+
+        <div class="lj-visual-card">
+            <img src="assets/LJ_Figure1.png" alt="Potential Curve">
+            <h3>Lennard-Jones Potential</h3>
+            <p>
+                The characteristic potential energy curve with a clear equilibrium distance at the energy minimum.
+            </p>
+        </div>
+
+        <div class="lj-visual-card">
+            <img src="assets/LJ_Figure2.png" alt="Trajectory Simulation">
+            <h3>Dynamic Trajectories</h3>
+            <p>
+                Particle motion over time, revealing stable structures and fluctuating energy dynamics.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS (TIMELINE STYLE) -->
+<section class="lj-process fade-in">
+    <h2 class="section-title">How the Simulation Works</h2>
+
+    <div class="process-timeline">
+
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>1. Force Model</h3>
+                <p>
+                    The Lennard-Jones potential is defined and used to compute pairwise forces between particles
+                    based on their separation distances.
+                </p>
+            </div>
+        </div>
+
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>2. Time Integration</h3>
+                <p>
+                    Using a numerical integration scheme (e.g. Verlet or Euler), positions and velocities
+                    are updated step-by-step to evolve the system.
+                </p>
+            </div>
+        </div>
+
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>3. Energy & Stability</h3>
+                <p>
+                    Over time, the system tends towards lower energy configurations, demonstrating clustering
+                    and stable structures around the potential minimum.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer fade-in">
+    <p>© 2025 Jack Murphy</p>
+    <p><a href="mailto:your_email@example.com">your_email@example.com</a></p>
+    <p><a href="https://www.linkedin.com/in/your-link-here" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
