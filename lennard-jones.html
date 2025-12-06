@@ -42,25 +42,23 @@
         <div class="lj-main-text">
             <h2>Overview</h2>
             <p>
-                This simulation models interacting particles governed by the classical
+                This simulation models interacting particles  by 
                 <strong>Lennard-Jones potential</strong>.  
-                The LJ force captures both the short-range repulsion (when particles get too close)
+                The LJ force captures both the short-range repulsion 
                 and longer-range attraction, producing realistic molecular clustering and stability.
                 <br><br>
-                By integrating particle motion over time, the system reveals how energy minimisation
-                naturally leads to equilibrium spacing and emergent structure.
+                The plots generated depict the impact of particle positioning, the total energy and maximum displacement of Monte Carlo moves.
             </p>
 
             <div class="lj-tags">
-                <span>Python</span>
-                <span>Molecular Dynamics</span>
-                <span>Numerical Integration</span>
-                <span>Matplotlib</span>
+                <span>Matlab</span>
+                <span>Intermolecular Dynamics</span>
+                <span>Chemistry</span>
             </div>
         </div>
 
         <div class="lj-main-visual">
-            <img src="assets/lj1.png" alt="Lennard-Jones System Snapshot">
+            <img src="assets/atom.jpg" alt="Lennard-Jones System Snapshot">
         </div>
 
     </div>
@@ -68,46 +66,55 @@
 
 
 <!-- SIMULATION SNAPSHOT (COMPACT VERSION) -->
-<section class="snapshot-section fade-in">
-    <h2 class="section-title">Simulation Snapshot</h2>
-    <p class="snapshot-intro">
-        Key parameters that govern and define the behaviour of the simulation.
-    </p>
+<!-- SIMULATION SNAPSHOT (RiskAnalysis Layout) -->
+<section class="ra-layout fade-in">
 
-    <!-- 2×2 compact metric grid -->
-    <div class="snapshot-metric-grid">
-        <div class="snapshot-card">
-            <span class="snapshot-label">Force Model</span>
-            <span class="snapshot-value">Lennard-Jones</span>
-            <p>Repulsive + attractive inter-particle interaction.</p>
+    <!-- LEFT SIDE — METRIC SUMMARY -->
+    <div class="ra-summary">
+
+        <h2>Snapshot</h2>
+        <p>
+            
+        </p>
+
+        <!-- COMPACT 2×2 GRID -->
+        <div class="metric-grid ra-tight-grid">
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Force Model</span>
+                <span class="metric-title">Lennard-Jones</span>
+                <p>Repulsive & attractive inter-particle interaction.</p>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Dynamics</span>
+                <span class="metric-title">Move Iteration</span>
+                <p>Numerical updates of positions & total energy.</p>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Particles</span>
+                <span class="metric-title">Configurable</span>
+                <p>Supports an arbitrary number of simulated bodies (N).</p>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Energy</span>
+                <span class="metric-title">Stabilising</span>
+                <p>System relaxes toward low-energy equilibrium states.</p>
+            </div>
         </div>
 
-        <div class="snapshot-card">
-            <span class="snapshot-label">Dynamics</span>
-            <span class="snapshot-value">Time Integration</span>
-            <p>Numerical updates of positions & velocities each timestep.</p>
-        </div>
-
-        <div class="snapshot-card">
-            <span class="snapshot-label">Particles</span>
-            <span class="snapshot-value">Configurable</span>
-            <p>Supports an arbitrary number of simulated bodies.</p>
-        </div>
-
-        <div class="snapshot-card">
-            <span class="snapshot-label">Energy</span>
-            <span class="snapshot-value">Stabilising</span>
-            <p>System relaxes toward low-energy equilibrium states.</p>
-        </div>
     </div>
 
-    <!-- Smaller visual underneath -->
-    <div class="snapshot-visual">
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="ra-main-visual">
         <div class="ra-main-card">
-            <img src="assets/LJ_Figure3.png" alt="LJ Simulation Frame">
+            <img src="assets/LJ_Figure5.png" alt="Lennard-Jones">
             <p class="ra-main-caption">Representative simulation frame.</p>
         </div>
     </div>
+
 </section>
 
 
@@ -117,13 +124,7 @@
 
     <div class="ra-fig-grid">
 
-        <div class="ra-fig-card">
-            <img src="assets/LJ_Figure3.png" alt="Particle Setup">
-            <h3>Particle Configuration</h3>
-            <p>
-                Starting positions before forces evolve the system.
-            </p>
-        </div>
+        
 
         <div class="ra-fig-card">
             <img src="assets/LJ_Figure1.png" alt="LJ Potential Curve">
@@ -132,6 +133,16 @@
                 Characteristic LJ curve showing equilibrium distance at the minimum.
             </p>
         </div>
+
+        <div class="ra-fig-card">
+            <img src="assets/LJ_Figure4.png" alt="LJ Potential Curve">
+            <h3>Output File</h3>
+            <p>
+                Program neatly presents results of displacement into a an Output File.
+            </p>
+        </div>
+
+
 
         <div class="ra-fig-card">
             <img src="assets/LJ_Figure2.png" alt="Trajectory Evolution">
@@ -187,14 +198,6 @@
     </div>
 </section>
 
-
-<!-- TECH STRIP -->
-<section class="project-tech-strip fade-in">
-    <p>
-        Developed with <strong>Python</strong>, <strong>NumPy</strong> and
-        <strong>Matplotlib</strong>, applying classical molecular-dynamics techniques.
-    </p>
-</section>
 
 
 <!-- FOOTER -->

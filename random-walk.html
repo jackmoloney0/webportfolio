@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Random Walk Simulator — Jack Moloney</title>
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles2.css">
     <script src="homepage.js" defer></script>
 </head>
 
 <body>
 
-    <!-- BACK TO HOME BUTTON -->
+<!-- BACK TO HOME BUTTON -->
 <a href="index.html" class="back-home-btn">← Home</a>
 
 <!-- FLOATING LINKEDIN BUTTON -->
@@ -18,13 +22,11 @@
     <span>Linkedin</span>
 </a>
 
-<!-- HERO SECTION (same structure as riskanalysis) -->
+<!-- HERO SECTION -->
 <header class="hero-area">
     <div class="hero-content fade-in">
         <h1 class="hero-name">Random Walk Simulator</h1>
         <p class="project-tagline">Stochastic Price Dynamics & Monte Carlo Uncertainty</p>
-
-        <!-- hidden typed span so homepage.js doesn't break -->
         <p class="role-line project-role-line"><span id="typed"></span></p>
     </div>
 
@@ -33,18 +35,17 @@
 </header>
 
 
-<!-- MAIN FEATURED CARD (copied layout from riskanalysis) -->
+<!-- MAIN OVERVIEW CARD (consistent with all projects) -->
 <section class="lj-main fade-in">
     <div class="lj-main-card">
 
         <div class="lj-main-text">
             <h2>Overview</h2>
             <p>
-                This simulator models a discrete-time <strong>random walk</strong> for a synthetic asset price.  
-                Each step applies a stochastic shock drawn from a Gaussian distribution, allowing prices 
-                to evolve along many possible paths.  
-                By generating hundreds of trajectories simultaneously, the system visually demonstrates
-                how randomness compounds into uncertainty.
+                This simulator models a discrete-time <strong>random walk</strong> for an asset price. 
+                Each step applies Gaussian noise, producing many possible price paths that illustrate 
+                how uncertainty compounds over time. By simulating hundreds of trajectories, the model 
+                visualises the probabilistic spread inherent in stochastic systems.
             </p>
 
             <div class="lj-tags">
@@ -56,87 +57,89 @@
         </div>
 
         <div class="lj-main-visual">
-            <img src="assets/Figure_2.1.png" alt="Random Walk Snapshot">
+            <img src="assets/Figure_2.3.png" alt="Random Walk Example">
         </div>
 
     </div>
 </section>
 
 
-<!-- EXECUTIVE SNAPSHOT / METRIC GRID -->
-<!-- SIMULATION SNAPSHOT (COMPACT VERSION) -->
-<section class="snapshot-section fade-in">
-    <h2 class="section-title">Simulation Snapshot</h2>
-    <p class="snapshot-intro">
-        Core parameters that define the behaviour of the random walk engine.
-    </p>
+<!-- SIMULATION SNAPSHOT (two-column layout identical to the others) -->
+<!-- SNAPSHOT — CLEAN + ALIGNED WITH RISKANALYSIS -->
+<section class="ra-layout fade-in">
 
-    <!-- 2×2 compact grid -->
-    <div class="snapshot-metric-grid">
+    <div class="ra-summary">
+        <h2>Snapshot</h2>
+        <p>Core parameters describing the behaviour of the random walk engine.</p>
 
-        <div class="snapshot-card">
-            <span class="snapshot-label">Process</span>
-            <span class="snapshot-value">Random Walk</span>
-            <p>
-                Each step adds Gaussian noise to the previous price level.
-            </p>
+        <div class="metric-grid">
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Process</span>
+                <span class="metric-title">Random Walk</span>
+                <p>Each step adds Gaussian noise to the prior value.</p>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Paths</span>
+                <span class="metric-title">Hundreds</span>
+                <p>Multiple trajectories show uncertainty spread.</p>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Volatility</span>
+                <span class="metric-title">σ-Controlled</span>
+                <p>Standard deviation sets shock magnitude per timestep.</p>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Distribution</span>
+                <span class="metric-title">Gaussian</span>
+                <p>Noise from <code>N(0, σ)</code> accumulates over time.</p>
+            </div>
+
         </div>
-
-        <div class="snapshot-card">
-            <span class="snapshot-label">Paths</span>
-            <span class="snapshot-value">Hundreds</span>
-            <p>
-                Many trajectories visualise the spread of uncertainty.
-            </p>
-        </div>
-
-        <div class="snapshot-card">
-            <span class="snapshot-label">Volatility</span>
-            <span class="snapshot-value">σ-Controlled</span>
-            <p>
-                Standard deviation determines shock magnitude per timestep.
-            </p>
-        </div>
-
-        <div class="snapshot-card">
-            <span class="snapshot-label">Distribution</span>
-            <span class="snapshot-value">Gaussian</span>
-            <p>
-                Noise drawn from <code>N(0, σ)</code> accumulates over time.
-            </p>
-        </div>
-
     </div>
 
-    <!-- Smaller visual underneath -->
-    <div class="snapshot-visual">
+    <div class="ra-main-visual">
         <div class="ra-main-card">
-            <img src="assets/Figure_2.2.png" alt="Random Walk Simulation Output">
+            <img src="assets/Figure_2.1.png" alt="Random Walk Simulation Frame">
             <p class="ra-main-caption">Representative simulation frame.</p>
         </div>
     </div>
+
 </section>
 
 
+<!-- VISUAL DASHBOARD (clean 3-card layout) -->
+<section class="project-gallery fade-in">
+    <h2 class="section-title">Visual Outputs</h2>
+
+    <div class="ra-fig-grid">
+
         <div class="ra-fig-card">
-            <img src="assets/Figure_2.1.png" alt="Price Distribution">
-            <h3>Final Price Distribution</h3>
-            <p>
-                A histogram of ending prices illustrating the probabilistic behaviour of the model.
-            </p>
+            <img src="assets/Figure_2.1.png" alt="Random Walk Ensemble">
+            <h3>Price Paths</h3>
+            <p>Simulated trajectories diverge over time, illustrating uncertainty growth.</p>
         </div>
 
         <div class="ra-fig-card">
-            <img src="assets/Figure_2.2.png" alt="Comparative Paths">
-            <h3>Comparative Path Behaviour</h3>
-            <p>Contrast between calm and high-volatility random walk configurations.</p>
+            <img src="assets/Figure_2.2.png" alt="Final Distribution">
+            <h3>Final Value Distribution</h3>
+            <p>A histogram visualising the distribution of ending prices across paths.</p>
+        </div>
+
+        <div class="ra-fig-card">
+            <img src="assets/Figure_2.4.png" alt="Volatility Change">
+            <h3>Comparative Behaviour</h3>
+            <p>Comparing low-volatility and high-volatility walk configurations.</p>
         </div>
 
     </div>
 </section>
 
 
-<!-- METHODOLOGY (riskanalysis-style timeline) -->
+<!-- METHODOLOGY -->
 <section class="project-process fade-in">
     <h2 class="section-title">How It Works</h2>
 
@@ -146,20 +149,15 @@
             <div class="process-dot"></div>
             <div class="process-card">
                 <h3>1. Initialise</h3>
-                <p>
-                    Define step count, number of paths, starting value <code>S₀</code>, and volatility level.
-                </p>
+                <p>Define number of paths, steps, starting value <code>S₀</code>, and volatility.</p>
             </div>
         </div>
 
         <div class="process-step reveal">
             <div class="process-dot"></div>
             <div class="process-card">
-                <h3>2. Generate Random Shocks</h3>
-                <p>
-                    Each step adds Gaussian noise: <code>ε ~ N(0, σ)</code>.  
-                    Paths evolve independently using additive updates.
-                </p>
+                <h3>2. Generate Shocks</h3>
+                <p>Apply Gaussian noise: <code>ε ~ N(0, σ)</code> at each timestep.</p>
             </div>
         </div>
 
@@ -167,10 +165,7 @@
             <div class="process-dot"></div>
             <div class="process-card">
                 <h3>3. Analyse Spread</h3>
-                <p>
-                    Compare trajectories and examine the distribution of final prices to understand
-                    how uncertainty compounds over time.
-                </p>
+                <p>Evaluate the distribution and behaviour of resulting price paths.</p>
             </div>
         </div>
 
@@ -178,13 +173,6 @@
 </section>
 
 
-<!-- TECH STRIP (copied style from riskanalysis) -->
-<section class="project-tech-strip fade-in">
-    <p>
-        Built with <strong>Python</strong>, <strong>NumPy</strong>, and <strong>Matplotlib</strong>,
-        designed for quantitative experimentation and stochastic intuition.
-    </p>
-</section>
 
 
 <!-- FOOTER -->
