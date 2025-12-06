@@ -1298,3 +1298,148 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* === FLOATING BACK BUTTON (Top Left) === */
+.back-home-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* now top LEFT */
+    z-index: 9999;
+
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(102,252,241,0.35);
+    border-radius: 12px;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #66FCF1;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+    box-shadow: 0 0 12px rgba(102, 252, 241, 0.22);
+}
+
+.back-home-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: rgba(102,252,241,0.15);
+    box-shadow: 0 0 25px rgba(102,252,241,0.45);
+}
+/* Wrapper controls the DEFAULT small size */
+.current-work-img-wrapper {
+    width: 55%;                 /* Smaller default size */
+    margin: 0 auto;
+    transition: transform 0.4s ease, width 0.4s ease;
+    cursor: pointer;
+}
+
+/* Image styling */
+.current-work-img-wrapper img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(102,252,241,0.35);
+    transition: transform 0.4s ease;
+}
+
+/* Hover expansion */
+.current-work-img-wrapper:hover {
+    width: 80%;                 /* Expand smoothly on hover */
+    transform: scale(1.05);
+}
+
+.current-work-img-wrapper:hover img {
+    transform: scale(1.07);
+    box-shadow: 0 0 45px rgba(102,252,241,0.55);
+}
+.project-tile h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    min-height: 60px;   /* Ensures equal vertical space for all titles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* MINI CATEGORY LABEL ABOVE TITLES */
+.metric-mini-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #66FCF1;
+    opacity: 0.75;
+
+    margin-bottom: 4px;
+    transition: 0.3s ease;
+}
+
+/* MAIN TITLE BELOW LABEL */
+.metric-title {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #E6E6E6;
+    margin-bottom: 8px;
+}
+
+/* COOL EFFECT ON HOVER */
+.metric-card:hover .metric-mini-label {
+    opacity: 1;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px rgba(102, 252, 241, 0.7);
+    transform: translateY(-1px);
+}
+
+/* Slight glow on title hover */
+.metric-card:hover .metric-title {
+    color: #66FCF1;
+    text-shadow: 0 0 15px rgba(102,252,241,0.4);
+}
+/* FORCE ALL VISUAL DASHBOARD CARDS TO ALIGN */
+.ra-fig-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+/* Equal-height cards */
+.ra-fig-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid rgba(102,252,241,0.25);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(102,252,241,0.2);
+}
+
+/* UNIFY IMAGE HEIGHTS */
+.ra-fig-card img {
+    width: 100%;
+    height: 220px;            /* forces equal image height */
+    object-fit: contain;      /* prevents cropping */
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+/* Align text lengths and spacing */
+.ra-fig-card h3 {
+    margin-bottom: 6px;
+    min-height: 30px;         /* equal title height */
+}
+
+.ra-fig-card p {
+    flex-grow: 1;             /* ensures all text blocks fill evenly */
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.45;
+    color: #C5C6C7;
+}
