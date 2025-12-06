@@ -1443,3 +1443,31 @@ body {
     line-height: 1.45;
     color: #C5C6C7;
 }
+/* VIEW PROJECTS BUTTON */
+.view-projects-btn {
+    display: inline-block;
+    margin-top: 14px;
+
+    padding: 12px 28px;
+    border-radius: 14px;
+
+    background: rgba(102,252,241,0.12);
+    border: 1px solid rgba(102,252,241,0.35);
+
+    color: #66FCF1;
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+    box-shadow: 0 0 12px rgba(102,252,241,0.25);
+}
+
+.view-projects-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(102,252,241,0.25);
+    box-shadow: 0 0 30px rgba(102,252,241,0.55);
+}
