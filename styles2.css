@@ -1532,3 +1532,201 @@ body {
 .ra-layout {
     align-items: start !important;
 }
+.ra-layout .ra-main-visual {
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 10px;
+}
+/* Center the How It Works section in Random Walk page */
+.project-process {
+    text-align: center !important;
+}
+
+.project-process .process-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+}
+
+.project-process .process-card {
+    max-width: 700px;
+}
+/* ================================
+   COMPACT "CURRENTLY WORKING ON" SECTION
+   ================================ */
+
+/* Smaller spacing around the whole section */
+.current-work-section {
+    margin: 30px auto 20px !important;
+}
+
+/* Make the grid narrower and cards smaller */
+.current-work-grid {
+    grid-template-columns: 0.8fr 0.7fr !important;
+    gap: 20px !important;
+    max-width: 850px;
+    margin: 20px auto !important;
+}
+
+/* CARD SIZE REDUCTION */
+.current-work-card {
+    padding: 18px 22px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 14px rgba(102,252,241,0.18) !important;
+}
+
+/* TEXT CARD — smaller font */
+.current-work-textcard h3 {
+    font-size: 20px !important;
+    margin-bottom: 6px !important;
+}
+
+.current-work-textcard p {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+}
+
+/* IMAGE CARD — drastically reduce image size */
+.current-work-img-wrapper {
+    width: 60% !important;   /* reduce width */
+    margin: 0 auto !important;
+}
+
+.current-work-img-wrapper img {
+    border-radius: 12px !important;
+}
+
+/* On hover: subtle only */
+.current-work-img-wrapper:hover {
+    width: 65% !important;
+    transform: scale(1.03) !important;
+}
+
+.current-work-img-wrapper:hover img {
+    transform: scale(1.03) !important;
+}
+/* Resume Button (Homepage) */
+.resume-btn-home {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #0b0c10;
+
+    background: rgba(102, 252, 241, 0.18);
+    border: 1px solid rgba(102, 252, 241, 0.35);
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s ease;
+}
+
+.resume-btn-home:hover {
+    background: rgba(102, 252, 241, 0.35);
+    box-shadow: 0 0 18px rgba(102, 252, 241, 0.4);
+    transform: translateY(-2px);
+}
+/* ==========================================
+   UNIFIED HOMEPAGE BUTTON STYLE
+   ========================================== */
+
+/* =======================================================
+   VIBRANT GLOWING HOMEPAGE BUTTONS
+   ======================================================= */
+
+.homepage-btn {
+    position: relative;
+    display: inline-block;
+
+    padding: 14px 38px;
+    border-radius: 14px;
+
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+
+    /* Neon gradient */
+    background: linear-gradient(135deg, #66FCF1, #45A29E);
+    color: #0b0c10;
+
+    /* Glow + glass */
+    box-shadow:
+        0 0 12px rgba(102, 252, 241, 0.55),
+        inset 0 0 12px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+
+    transition: 0.25s ease;
+    overflow: hidden;
+}
+
+/* Hover: brighter + lifts */
+.homepage-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow:
+        0 0 20px rgba(102, 252, 241, 0.85),
+        0 0 40px rgba(102, 252, 241, 0.55),
+        inset 0 0 18px rgba(255, 255, 255, 0.35);
+}
+
+/* Click effect */
+.homepage-btn:active {
+    transform: scale(0.97);
+}
+
+/* Cool animated highlight following cursor */
+.homepage-btn::before {
+    content: "";
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+
+    width: 0;
+    height: 0;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.45),
+        rgba(255,255,255,0) 70%
+    );
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease;
+}
+
+.homepage-btn:hover::before {
+    width: 160px;
+    height: 160px;
+}
+
+/* Center the row */
+.homepage-btn-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 16px;
+}
+.profile-card-home {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+/* Increase size of the right image in the Currently Working On section */
+.current-work-img-wrapper {
+    width: 100% !important;     /* Increase image width */
+    max-width: 380px !important;   /* Set a generous max size */
+    margin: 0 auto !important;
+}
+
+.current-work-img-wrapper img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 14px;
+}
+/* Prevent image from shrinking on hover */
+.current-work-img-wrapper:hover {
+    width: inherit !important;   /* keeps the same width */
+}

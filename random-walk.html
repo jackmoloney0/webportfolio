@@ -43,7 +43,7 @@
             <h2>Overview</h2>
             <p>
                 This simulator models a discrete-time <strong>random walk</strong> for an asset price. 
-                Each step applies Gaussian noise, producing many possible price paths that illustrate 
+                Each step applies a drift, producing many possible price paths that illustrate 
                 how uncertainty compounds over time. By simulating hundreds of trajectories, the model 
                 visualises the probabilistic spread inherent in stochastic systems.
             </p>
@@ -51,7 +51,6 @@
             <div class="lj-tags">
                 <span>Python</span>
                 <span>Monte Carlo</span>
-                <span>Gaussian Noise</span>
                 <span>Stochastic Modelling</span>
             </div>
         </div>
@@ -70,34 +69,21 @@
 
     <div class="ra-summary">
         <h2>Snapshot</h2>
-        <p>Core parameters describing the behaviour of the random walk engine.</p>
+        <p></p>
 
         <div class="metric-grid">
 
             <div class="metric-card">
                 <span class="metric-mini-label">Process</span>
                 <span class="metric-title">Random Walk</span>
-                <p>Each step adds Gaussian noise to the prior value.</p>
+                <p>Each step adds a drift and range of volatility.</p>
             </div>
 
             <div class="metric-card">
                 <span class="metric-mini-label">Paths</span>
                 <span class="metric-title">Hundreds</span>
-                <p>Multiple trajectories show uncertainty spread.</p>
+                <p>Inputed from user, can alter amount paths and total time in days, along with volatility.</p>
             </div>
-
-            <div class="metric-card">
-                <span class="metric-mini-label">Volatility</span>
-                <span class="metric-title">σ-Controlled</span>
-                <p>Standard deviation sets shock magnitude per timestep.</p>
-            </div>
-
-            <div class="metric-card">
-                <span class="metric-mini-label">Distribution</span>
-                <span class="metric-title">Gaussian</span>
-                <p>Noise from <code>N(0, σ)</code> accumulates over time.</p>
-            </div>
-
         </div>
     </div>
 
@@ -141,7 +127,7 @@
 
 <!-- METHODOLOGY -->
 <section class="project-process fade-in">
-    <h2 class="section-title">How It Works</h2>
+    <h2 class="section-title">Methodology</h2>
 
     <div class="process-timeline">
 
