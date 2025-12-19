@@ -24,10 +24,9 @@ faders.forEach(fader => appearOnScroll.observe(fader));
 ============================ */
 const roles = [
     "Electrical Engineer",
-    "Python Enthusiast",
-    "Computer Software",
-    "Financial Modeller",
-    "Creative"
+    "Software Developer",
+    "Quantitative Analyst ",
+    "Creater"
 ];
 
 let index = 0;

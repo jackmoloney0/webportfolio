@@ -115,12 +115,19 @@ body {
 }
 
 .hero-name {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 82px;
+    font-weight: 700;
+    letter-spacing: 3px;
     color: #66FCF1;
-    font-size: 80px;
-    letter-spacing: 6px;
-    font-weight: 800;
-    text-shadow: 0 0 30px rgba(102, 252, 241, 0.4);
+
+    text-shadow:
+        0 0 14px rgba(102, 252, 241, 0.22);
+
+    margin-bottom: 6px;
 }
+
+
 
 .role-line {
     color: #C5C6C7;
@@ -1729,4 +1736,49 @@ body {
 /* Prevent image from shrinking on hover */
 .current-work-img-wrapper:hover {
     width: inherit !important;   /* keeps the same width */
+}
+/* ============================================================
+   HERO + PROFILE POSITIONING OVERRIDES
+   Paste at END of styles2.css
+   ============================================================ */
+
+/* Move hero title toward the top */
+.hero-area {
+    align-items: flex-start !important;
+    padding-top: 120px !important;
+}
+
+/* Refined hero title appearance */
+.hero-name {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 82px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+}
+
+/* Reduce aggressive overlap so card appears centered on load */
+.profile-wrapper {
+    margin-top: -40px !important;
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the “Hello, I'm Jack” card perfectly */
+.profile-card-home {
+    margin: 0 auto !important;
+    align-items: center !important;
+}
+/* ============================================================
+   REDUCE GAP BETWEEN HERO TITLE AND ABOUT BUBBLE
+   ============================================================ */
+
+/* Reduce overall hero height so it doesn't push content down */
+.hero-area {
+    height: 60vh !important;
+}
+
+/* Pull the profile section upward closer to the title */
+.profile-wrapper {
+    margin-top: -200px !important;
 }
