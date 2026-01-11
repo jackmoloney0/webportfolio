@@ -1,396 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
-
-    <meta charset="UTF-8">
-    <title>Jack Moloney — Portfolio</title>
-
-    <!-- Use upgraded stylesheet -->
-    <link rel="stylesheet" href="styles2.css">
-
-    <!-- === HOMEPAGE-ONLY REFINEMENTS === -->
-    <style>
-
-    /* Make base body transparent — we use global background layer */
-    body {
-        background: transparent;
-    }
-
-    /* HERO enhancements */
-    .hero-area {
-        height: 90vh;
-        background: radial-gradient(circle at top,
-                    rgba(11,12,16,0.35) 0%,
-                    rgba(11,12,16,0.25) 35%,
-                    rgba(11,12,16,0.15) 60%,
-                    rgba(11,12,16,0.10) 100%);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(102,252,241,0.12);
-    }
-
-    .hero-name {
-        font-size: 88px;
-        letter-spacing: 7px;
-        opacity: 0;
-        animation: fadeHero 2s ease forwards;
-    }
-
-    @keyframes fadeHero {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Intro strip */
-    .intro-strip {
-        max-width: 1100px;
-        margin: -40px auto 40px;
-        padding: 28px 40px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(102,252,241,0.20);
-        backdrop-filter: blur(18px);
-        text-align: center;
-        opacity: 0;
-        animation: stripFade 1.8s ease forwards;
-    }
-
-    @keyframes stripFade {
-        to { opacity: 1; }
-    }
-
-    .intro-strip p {
-        font-size: 20px;
-        color: #E6E6E6;
-        line-height: 1.7;
-        max-width: 850px;
-        margin: auto;
-    }
-
-    /* Profile card hover enhancements */
-    .profile-card-home {
-        transition: transform 0.45s ease, box-shadow 0.45s ease;
-        transform-style: preserve-3d;
-        cursor: pointer;
-    }
-
-    .profile-card-home:hover {
-        transform: rotateX(6deg) rotateY(6deg) scale(1.02);
-        box-shadow: 0 0 45px rgba(102,252,241,0.35);
-    }
-
-    /* Project tiles stronger effect */
-    .project-tile {
-        transition: 0.4s ease;
-        cursor: pointer;
-    }
-
-    .project-tile:hover {
-        transform: translateY(-12px) scale(1.05);
-        box-shadow: 0 0 42px rgba(102,252,241,0.50);
-    }
-
-    .project-tile h3 {
-        font-size: 24px;
-    }
-
-    /* Experience timeline improvements */
-    .timeline-content {
-        border-radius: 18px;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .timeline-content:hover {
-        transform: translateY(-8px) scale(1.04);
-        box-shadow: 0 0 38px rgba(102,252,241,0.45);
-    }
-
-    /* Skills — more interactive */
-    .tool-card {
-        width: 185px;
-        height: 185px;
-    }
-
-    .tool-card:hover {
-        transform: translateY(-12px) scale(1.1);
-        box-shadow: 0 0 40px rgba(102,252,241,0.55);
-    }
-
-    </style>
-
-    <!-- Homepage JS -->
-    <script src="homepage.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jack Moloney</title>
+  <meta name="description" content="Jack Moloney — Engineering student. Simulation, quant, and systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- ambient / cursor layer -->
+  <div class="fx" aria-hidden="true">
+    <div class="fx__grid"></div>
+    <div class="fx__grain"></div>
+    <div class="fx__vignette"></div>
+    <div class="fx__cursor"></div>
+  </div>
 
-<!-- ============================================================
-     FULL-PAGE CITADEL BACKGROUND LAYER
-============================================================ -->
-<div id="global-background">
-    <canvas id="global-particles"></canvas>
-    <div class="global-grid-overlay"></div>
-</div>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand__dot"></span>
+        <span class="brand__name">Jack Moloney</span>
+      </a>
 
-<!-- ============================================================
-     FLOATING LINKEDIN BUTTON
-============================================================ -->
-<a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank" class="floating-linkedin">
-    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
-    <span>Linkedin</span>
-</a>
-
-
-<!-- ============================================================
-     HERO SECTION
-============================================================ -->
-<header class="hero-area">
-    <div class="hero-content fade-in">
-        <h1 class="hero-name">Jack Moloney</h1>
-        <p class="role-line"><span id="typed"></span></p>
+      <nav class="nav">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#projects">Projects</a>
+        <a class="nav__link" href="#experience">Experience</a>
+      </nav>
     </div>
+  </header>
 
-    <canvas id="particle-canvas"></canvas>
-    <div class="grid-overlay"></div>
-</header>
-
-
-
-<!-- ============================================================
-     PROFILE CARD
-============================================================ -->
-<section class="profile-wrapper fade-in">
-    <div class="profile-card-home">
-        <img src="assets/profile.png" class="profile-photo-home">
-
-        <div>
-            <h2 class="profile-heading">Hello, I'm Jack</h2>
-            <p class="profile-description">
-                First-year Engineering student at UCD interested in Maths, Physics, and Economics. 
-                I enjoy creating practical, innovative solutions, and coding financial models has become the perfect blend of those interests.
-                 A selection of my projects is shown below.
-            </p>
-           <div class="homepage-btn-row">
-    <a href="mailto:jackmoloneyyy@gmail.com" class="homepage-btn">Contact Me</a>
-    <a href="#projects" class="homepage-btn">View Projects</a>
-    <a href="assets/JackMoloneyCV.pdf" class="homepage-btn" target="_blank">Resume</a>
-</div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================
-     CURRENTLY WORKING ON (TWO-COLUMN)
-============================================================ -->
-<section class="current-work-section fade-in">
-    <h2 class="section-title">Currently Working On</h2>
-
-    <div class="current-work-grid">
-
-        <!-- LEFT: Description -->
-        <div class="current-work-card current-work-textcard">
-            <h3>Monte Carlo Market </h3>
-            <p>
-                Building a <strong>multi-asset Monte Carlo simulator</strong> designed to
-                capture volatility, shifts, tail-risk behaviour and realistic price-path
-                dynamics.  
-                <br><br>
-                The system will be a full <strong>scenario generator</strong> for stress testing
-                portfolio allocations under extreme market conditions.
-            </p>
+  <main id="top" class="shell">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__left">
+        <div class="photo" data-tilt>
+          <img src="assets/profile.png" alt="Jack Moloney" onerror="this.remove(); this.parentElement.classList.add('photo--fallback')" />
+          <div class="photo__fallback" aria-hidden="true">JM</div>
+          <div class="photo__shine" aria-hidden="true"></div>
         </div>
 
-        <!-- RIGHT: Image -->
-        <div class="current-work-card current-work-imagecard">
-    <div class="current-work-img-wrapper">
-        <img src="assets/montecarlo2.png" alt="Work In Progress">
-    </div>
-</div>
+        <div class="headline">
+          <h1 class="h1">Hi, I’m <span class="h1__name">Jack</span>.</h1>
+          <p class="lede">
+            Engineering student focused on simulation, quantitative thinking, and building clean systems.
+          </p>
 
+          <div class="actions">
+            <a class="btn btn--primary" href="#projects">View work</a>
+            <a class="btn" href="assets/JackMoloneyCV.pdf" target="_blank" rel="noreferrer">CV</a>
+            <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
 
-    </div>
-</section>
+      <aside id="about" class="about card reveal">
+        <div class="card__top">
+          <h2 class="kicker">About</h2>
+          <span class="tag">Dublin, Ireland</span>
+        </div>
+        <p class="about__text">
+        </p>
 
+        <ul class="about__bullets" aria-label="About me highlights">
+          <li><strong>First‑year Engineering</strong> building simulation + quant projects end‑to‑end.</li>
+          <li><strong>Obsessed with clarity:</strong> tight write‑ups, clean code, and visual explanations.</li>
+          <li><strong>Interests:</strong> markets, aviation, physics, and systems that scale.</li>
+          <li><strong>Looking for:</strong> an internship where I can ship and learn fast.</li>
+        </ul>
+      </aside>
+    </section>
 
-<!-- ============================================================
-     PROJECT SHOWCASE
-============================================================ -->
-<section id="projects" class="project-showcase fade-in">
-    <h2 class="section-title">Previous Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Projects</h2>
+      </div>
 
-    <div class="projects-grid">
-
-        <a href="riskanalysis.html" class="project-tile">
-            <h3>Portfolio Risk Analyzer</h3>
-            <p>Multi-asset risk modelling, covariance, sharpe and volatility.</p>
+      <div class="projects">
+        <a class="project reveal" href="riskanalysis.html">
+          <div class="project__text">
+            <div class="project__title">Portfolio Risk Analysis</div>
+            <div class="project__desc">Risk metrics, distributions, and scenario thinking for portfolio outcomes.</div>
+            <div class="project__chips">
+              <span class="chip">Python</span><span class="chip">Stats</span><span class="chip">Risk</span>
+            </div>
+          </div>
+          <div class="project__media">
+            <img src="assets/Figure_2.2.png" alt="Risk analysis preview" loading="lazy" />
+          </div>
+          <span class="project__arrow" aria-hidden="true">↗</span>
         </a>
 
-        <a href="random-walk.html" class="project-tile">
-            <h3>Random Walk Price Simulator</h3>
-            <p>Random price-path simulation with drift and uncertainty modelling.</p>
+        <a class="project reveal" href="random-walk.html">
+          <div class="project__text">
+            <div class="project__title">Random Walk Price Simulator</div>
+            <div class="project__desc">Monte Carlo price paths with drift, volatility, and interpretability.</div>
+            <div class="project__chips">
+              <span class="chip">Python</span><span class="chip">Monte Carlo</span>
+            </div>
+          </div>
+          <div class="project__media">
+            <img src="assets/montecarlo.png" alt="Random walk preview" loading="lazy" />
+          </div>
+          <span class="project__arrow" aria-hidden="true">↗</span>
         </a>
 
-        <a href="lennard-jones.html" class="project-tile">
-            <h3>Atomic Simulation</h3>
-            <p>Three-dimensional molecular force simulations on the atomic scale.</p>
+        <a class="project reveal" href="lennard-jones.html">
+          <div class="project__text">
+            <div class="project__title">Lennard‑Jones Atomic Simulation</div>
+            <div class="project__desc">Particle interactions and emergent behavior from simple physical laws.</div>
+            <div class="project__chips">
+              <span class="chip">Physics</span><span class="chip">MATLAB</span>
+            </div>
+          </div>
+          <div class="project__media">
+            <img src="assets/LJ_Figure1.png" alt="Lennard-Jones preview" loading="lazy" />
+          </div>
+          <span class="project__arrow" aria-hidden="true">↗</span>
         </a>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section section--tight">
+      <div class="section__head">
+        <h2 class="section__title">Experience</h2>
+      </div>
 
-
-<!-- ============================================================
-     EXPERIENCE
-============================================================ -->
-<section class="experience-section fade-in">
-    <h2 class="section-title">Experience</h2>
-
-    <div class="timeline">
-
-        <div class="timeline-item reveal">
-            <div class="timeline-dot pulse"></div>
-            <div class="timeline-line"></div>
-            <div class="timeline-content">
-                <h3>Electronic & Electrical Engineer</h3>
-                <h4>University College Dublin • 2025–Present</h4>
-                <p>As an Electrical and Electronic Engineering student, I work at the intersection of mathematics, physics, and computation.
-                     My studies span linear algebra, circuit theory, control, and electromagnetics, supported by hands-on coding in Python, MATLAB, and C.
-                      I enjoy building systems and simulations that translate theory into real behaviour and understanding technologies that will shape the future.</p>
-            </div>
+      <div class="xp card reveal">
+        <div class="xp__row">
+          <div class="xp__role">Engineering Student</div>
+          <div class="xp__meta">University College Dublin • 2025–Present</div>
         </div>
+        <ul class="xp__bullets">
+          <li>Build quantitative projects that connect maths to real outcomes (risk, simulation, optimization).</li>
+          <li>Ship clean, readable interfaces and project write‑ups that communicate clearly to recruiters.</li>
+          <li>Comfortable across analysis + implementation: modelling, code, and presentation.</li>
+        </ul>
+      </div>
 
-<div class="timeline-item reveal">
-            <div class="timeline-dot pulse"></div>
-            <div class="timeline-line"></div>
-            <div class="timeline-content">
-                <h3>Quantitative Modelling</h3>
-                <h4>Hobby • 2025–Present</h4>
-                <p> Since finishing my Leaving Cert, I’ve pursued my interest in Economics through quantitative modelling projects. </p>
-            </div>
+      <footer class="footer">
+        <div>© <span id="y"></span> Jack Moloney</div>
+        <div class="footer__links">
+          <a href="#top">Top</a>
+          <a href="mailto:jackmoloneyyy@gmail.com">Email</a>
         </div>
+      </footer>
+    </section>
+  </main>
 
-
-        <div class="timeline-item reveal">
-            <div class="timeline-dot pulse"></div>
-            <div class="timeline-line"></div>
-            <div class="timeline-content">
-                <h3>Member of UCD Elecsoc and Investors & Entrepreneurs (I&E)</h3>
-                <h4>University College Dublin • 2025–Present</h4>
-                <p>As a member of UCD ElecSoc and UCD I&E, I take part in technical events and innovation projects that build my engineering, entrepreneurial and collaborative skills.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item reveal">
-            <div class="timeline-dot pulse"></div>
-            <div class="timeline-line"></div>
-            <div class="timeline-content">
-                <h3>Founder of Physics Society</h3>
-                <h4>Secondary School • 2023–2025</h4>
-                <p>I founded a student-run Physics Society that helped students learn through collaborative, interactive workshops and peer-led problem sessions. Competed in the Senior Applied Maths Competition (IAMTA), representing my school in its first-ever entry.</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ============================================================
-     SKILLS
-============================================================ -->
-<section class="tools-section fade-in">
-    <h2 class="section-title">Skills</h2>
-
-    <div class="tools-grid">
-        <div class="tool-card">
-            <img src="assets/python.png" class="tool-logo">
-            <p class="tool-label">Python</p>
-        </div>
-
-        <div class="tool-card">
-            <img src="assets/C.png" class="tool-logo">
-            <p class="tool-label">C</p>
-        </div>
-
-        <div class="tool-card">
-            <img src="assets/matlab.png" class="tool-logo">
-            <p class="tool-label">MATLAB</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- ============================================================
-     FOOTER
-============================================================ -->
-<footer class="footer fade-in">
-    <p>© 2025 Jack Moloney</p>
-    <p><a href="mailto:jackmoloneyyy@gmail.com">jackmoloneyyy@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank">Linkedin</a></p>
-</footer>
-
-
-<!-- ============================================================
-     FULL-PAGE PARTICLES SCRIPT
-============================================================ -->
-<script>
-const canvas2 = document.getElementById("global-particles");
-const ctx2 = canvas2.getContext("2d");
-
-function resizeGlobalCanvas() {
-    canvas2.width = window.innerWidth;
-    canvas2.height = window.innerHeight;
-}
-resizeGlobalCanvas();
-window.addEventListener("resize", resizeGlobalCanvas);
-
-const globalParticles = [];
-const NUM_GLOBAL = 70;
-
-for (let i = 0; i < NUM_GLOBAL; i++) {
-    globalParticles.push({
-        x: Math.random() * canvas2.width,
-        y: Math.random() * canvas2.height,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        size: 1.8 + Math.random() * 1.8,
-    });
-}
-
-function drawGlobalParticles() {
-    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
-
-    globalParticles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = canvas2.width;
-        if (p.x > canvas2.width) p.x = 0;
-        if (p.y < 0) p.y = canvas2.height;
-        if (p.y > canvas2.height) p.y = 0;
-
-        ctx2.fillStyle = "rgba(102, 252, 241, 0.70)";
-        ctx2.beginPath();
-        ctx2.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx2.fill();
-    });
-
-    requestAnimationFrame(drawGlobalParticles);
-}
-
-drawGlobalParticles();
-</script>
-<script>
-document.querySelectorAll(".homepage-btn").forEach(btn => {
-    btn.addEventListener("mousemove", function(e) {
-        const rect = btn.getBoundingClientRect();
-        btn.style.setProperty("--x", (e.clientX - rect.left) + "px");
-        btn.style.setProperty("--y", (e.clientY - rect.top) + "px");
-    });
-});
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>

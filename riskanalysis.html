@@ -1,177 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio Risk Analyzer — Jack Moloney</title>
-    <link rel="stylesheet" href="styles2.css">
-    <script src="homepage.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio Risk Analysis — Jack Moloney</title>
+  <meta name="description" content="Monte Carlo modelling and visual diagnostics to understand portfolio outcomes (distribution-first, not point estimates).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <div class="fx" aria-hidden="true">
+    <div class="fx__grid"></div>
+    <div class="fx__grain"></div>
+    <div class="fx__vignette"></div>
+    <div class="fx__cursor"></div>
+  </div>
 
-    <!-- BACK TO HOME BUTTON -->
-<a href="index.html" class="back-home-btn">← Home</a>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html#projects" aria-label="Back to projects">
+        <span class="brand__dot"></span>
+        <span class="brand__name">Jack Moloney</span>
+      </a>
 
-
-<!-- FLOATING LINKEDIN BUTTON -->
-<a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank" class="floating-linkedin">
-    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
-    <span>Linkedin</span>
-</a>
-
-<!-- HERO SECTION (reuses hero-area so particles work) -->
-<header class="hero-area">
-    <div class="hero-content fade-in">
-        <h1 class="hero-name">Portfolio Risk Analyzer</h1>
-        <p class="project-tagline">Multi-Asset Risk, Return & Volatility.</p>
-
-        <!-- hidden typed span so homepage.js doesn't break on this page -->
-        <p class="role-line project-role-line"><span id="typed"></span></p>
+      <nav class="nav" aria-label="Page">
+        <a class="nav__link" href="#overview">Overview</a>
+        <a class="nav__link" href="#figures">Figures</a>
+        <a class="nav__link" href="#notes">Notes</a>
+      </nav>
     </div>
+  </header>
 
-    <canvas id="particle-canvas"></canvas>
-    <div class="grid-overlay"></div>
-</header>
+  <main class="shell page">
+    <div class="hr"></div>
 
-<!-- MAIN FEATURED CARD -->
-<section class="lj-main fade-in">
-    <div class="lj-main-card">
-        <div class="lj-main-text">
-            <h2>Overview</h2>
-            <p>
-                This Python-based tool ingests live market data, computes asset statistics,
-                and puts them into a single portfolio view covering yearly return and
-                volatility, covariance structure and sharpe ratio.
-            </p>
-
-            <div class="lj-tags">
-                <span>Python</span>
-                <span>Quantitative Methods</span>
-                <span>Yahoo Finance</span>
-            </div>
-        </div>
-
-        <div class="lj-main-visual">
-            <!-- Replace this with your favourite key image -->
-            <img src="assets/vol.png" alt="Volatility Snapshot">
-        </div>
-    </div>
-</section>
-
-
-<main class="project-shell">
-
-    <!-- EXECUTIVE SNAPSHOT -->
-    <section class="ra-layout fade-in">
-        <div class="ra-summary">
-            <h2>Snapshot</h2>
-            <p>
-                
-            </p>
-
-            <div class="metric-grid">
-               <div class="metric-card">
-    <span class="metric-mini-label">Focus</span>
-    <span class="metric-title">Risk & Return</span>
-    <p>Yearly return and volatility across assets.</p>
-</div>
-
-<div class="metric-card">
-    <span class="metric-mini-label">Tech</span>
-    <span class="metric-title">Python Imports</span>
-    <p>Built with <code>NumPy</code>, <code>Pandas</code>, <code>Matplotlib</code> and <code>yfinance</code>.</p>
-</div>
-
-            </div>
-
-            <a href="https://github.com/yourrepo" target="_blank" class="ra-cta">
-                View Source Code on GitHub
-            </a>
-        </div>
-
-        <div class="ra-main-visual">
-            <div class="ra-main-card">
-                <img src="assets/Figure_2.png" alt="Portfolio Value Over Time">
-                <p class="ra-main-caption">Portfolio Growth Curve</p>
-            </div>
-        </div>
+    <section class="split">
+      <div class="note reveal">
+        <h3>What it does</h3>
+        <p>Generates many plausible future paths and summarises outcomes with interpretable plots (allocation, distributions, risk/return, regimes).</p>
+      </div>
+      <div class="note reveal">
+        <h3>Why it matters</h3>
+        <p>Recruiter-friendly: shows how I think about uncertainty and make results explainable, not just correct.</p>
+      </div>
     </section>
 
-    <!-- VISUAL DASHBOARD -->
-    <section class="project-gallery fade-in">
-        <h2 class="section-title">Visual Outputs</h2>
+    <div class="hr"></div>
 
-        <div class="ra-fig-grid">
-            <div class="ra-fig-card">
-                <img src="assets/Figure_1.png" alt="Portfolio Allocation">
-                <h3>Asset Allocation </h3>
-                <p>Distribution of assets displayed with a pie-chart breakdown.</p>
-            </div>
+    <section id="figures" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Figures</h2>
+        <p class="section__sub">Click any image to zoom.</p>
+      </div>
 
-            <div class="ra-fig-card">
-                <img src="assets/Figure_3.png" alt="Risk vs Return">
-                <h3>Risk vs. Return</h3>
-                <p>Annualised volatility vs. expected return for each asset and portfolio.</p>
-            </div>
-
-            <div class="ra-fig-card">
-                <img src="assets/Figure_4.png" alt="Rolling Volatility">
-                <h3>Rolling Volatility</h3>
-                <p>30-day rolling volatility highlights periods of elevated market stress.</p>
-            </div>
+      <div class="gallery">
+        
+        <div class="gcard reveal" data-src="assets/Figure_1.png" data-title="Allocation split" data-caption="Weights and concentration at a glance.">
+          <img src="assets/Figure_1.png" alt="Allocation split" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Allocation split</div>
+            <div class="d">Weights and concentration at a glance.</div>
+          </div>
         </div>
+        
+        <div class="gcard reveal" data-src="assets/Figure_2.1.png" data-title="Simulated price paths" data-caption="Monte Carlo trajectories showing uncertainty growth.">
+          <img src="assets/Figure_2.1.png" alt="Simulated price paths" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Simulated price paths</div>
+            <div class="d">Monte Carlo trajectories showing uncertainty growth.</div>
+          </div>
+        </div>
+        
+        <div class="gcard reveal" data-src="assets/Figure_2.2.png" data-title="Final prices distribution" data-caption="Outcome distribution with median/mean markers.">
+          <img src="assets/Figure_2.2.png" alt="Final prices distribution" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Final prices distribution</div>
+            <div class="d">Outcome distribution with median/mean markers.</div>
+          </div>
+        </div>
+        
+        <div class="gcard reveal" data-src="assets/Figure_3.png" data-title="Risk vs return map" data-caption="Volatility vs expected return for assets/portfolio.">
+          <img src="assets/Figure_3.png" alt="Risk vs return map" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Risk vs return map</div>
+            <div class="d">Volatility vs expected return for assets/portfolio.</div>
+          </div>
+        </div>
+        
+        <div class="gcard reveal" data-src="assets/Figure_4.png" data-title="Returns over time" data-caption="How returns evolve across the run.">
+          <img src="assets/Figure_4.png" alt="Returns over time" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Returns over time</div>
+            <div class="d">How returns evolve across the run.</div>
+          </div>
+        </div>
+        
+      </div>
     </section>
 
-    <!-- METHODOLOGY -->
-    <section class="project-process fade-in">
-        <h2 class="section-title">Methodology</h2>
+    <div class="hr"></div>
 
-        <div class="process-timeline">
+    <section id="notes" class="section section--tight">
+      <div class="section__head">
+        <h2 class="section__title">Notes</h2>
+        <p class="section__sub">Old material preserved, rewritten for clarity.</p>
+      </div>
 
-            <div class="process-step reveal">
-                <div class="process-dot"></div>
-                <div class="process-card">
-                    <h3>1. Data Gathering</h3>
-                    <p>
-                        Uses <code>yfinance</code> to download adjusted closing prices for a set of tickers,
-                        put into a price matrix.
-                    </p>
-                </div>
-            </div>
-
-            <div class="process-step reveal">
-                <div class="process-dot"></div>
-                <div class="process-card">
-                    <h3>2. Return & Covariance Model</h3>
-                    <p>
-                        Computes daily returns, annualises mean and volatility. Then constructs
-                        a covariance matrix to show relationships between assets.
-                    </p>
-                </div>
-            </div>
-
-            <div class="process-step reveal">
-                <div class="process-dot"></div>
-                <div class="process-card">
-                    <h3>3. Portfolio Construction</h3>
-                    <p>
-                        Applies user-defined weights to derive portfolio-level return, risk
-                        and Sharpe ratio. Then visualises key outputs in plots seen.
-                    </p>
-                </div>
-            </div>
-
+      <div class="xp card reveal">
+        <div class="xp__row">
+          <div class="xp__role">Implementation</div>
+          <div class="xp__meta">Concise narrative</div>
         </div>
+        <ul class="xp__bullets">
+          <li>Built with the same typography and motion system as the homepage for a seamless experience.</li>
+          <li>Each figure answers one question; captions explain the decision insight.</li>
+          <li>Next upgrade: add a short “methods” appendix + link to source code.</li>
+        </ul>
+      </div>
+
+      <footer class="footer">
+        <div>© <span id="y"></span> Jack Moloney</div>
+        <div class="footer__links">
+          <a href="index.html#projects">Projects</a>
+          <a href="mailto:jackmoloneyyy@gmail.com">Email</a>
+        </div>
+      </footer>
     </section>
+  </main>
 
-</main>
-
-<footer class="footer fade-in">
-    <p>© 2025 Jack Moloney</p>
-    <p><a href="mailto:jackmoloneyyy@gmail.com">jackmoloneyyy@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank">Linkedin</a></p>
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
-

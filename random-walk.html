@@ -1,172 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Random Walk Price Simulator — Jack Moloney</title>
-
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles2.css">
-    <script src="homepage.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Random Walk Price Simulator — Jack Moloney</title>
+  <meta name="description" content="A clean stochastic simulation for exploring drift, volatility, and the shape of future uncertainty.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <div class="fx" aria-hidden="true">
+    <div class="fx__grid"></div>
+    <div class="fx__grain"></div>
+    <div class="fx__vignette"></div>
+    <div class="fx__cursor"></div>
+  </div>
 
-<!-- BACK TO HOME BUTTON -->
-<a href="index.html" class="back-home-btn">← Home</a>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html#projects" aria-label="Back to projects">
+        <span class="brand__dot"></span>
+        <span class="brand__name">Jack Moloney</span>
+      </a>
 
-<!-- FLOATING LINKEDIN BUTTON -->
-<a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank" class="floating-linkedin">
-    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
-    <span>Linkedin</span>
-</a>
-
-<!-- HERO SECTION -->
-<header class="hero-area">
-    <div class="hero-content fade-in">
-        <h1 class="hero-name">Random Walk Price Simulator</h1>
-        <p class="project-tagline"> Price Dynamics & Uncertainty</p>
-        <p class="role-line project-role-line"><span id="typed"></span></p>
+      <nav class="nav" aria-label="Page">
+        <a class="nav__link" href="#overview">Overview</a>
+        <a class="nav__link" href="#figures">Figures</a>
+        <a class="nav__link" href="#notes">Notes</a>
+      </nav>
     </div>
+  </header>
 
-    <canvas id="particle-canvas"></canvas>
-    <div class="grid-overlay"></div>
-</header>
+  <main class="shell page">
+    <div class="hr"></div>
 
+    <section class="split">
+      <div class="note reveal">
+        <h3>What it does</h3>
+        <p>Simulates discrete-time price paths with drift/volatility and presents the results as readable visuals (paths, distributions, fans).</p>
+      </div>
+      <div class="note reveal">
+        <h3>Why it matters</h3>
+        <p>Turns abstract stochastic ideas into intuition: how tails grow, why volatility dominates, and how to reason about ranges not single numbers.</p>
+      </div>
+    </section>
 
-<!-- MAIN OVERVIEW CARD (consistent with all projects) -->
-<section class="lj-main fade-in">
-    <div class="lj-main-card">
+    <div class="hr"></div>
 
-        <div class="lj-main-text">
-            <h2>Overview</h2>
-            <p>
-                This simulator models a discrete-time <strong>random walk</strong> for an asset price. 
-                Each step applies a drift, producing many possible price paths that illustrate 
-                how uncertainty compounds over time. By simulating hundreds of trajectories, the model 
-                visualises the probabilistic spread inherent in stochastic systems.
-            </p>
+    <section id="figures" class="section">
+      <div class="section__head">
+        <h2 class="section__title">Figures</h2>
+        <p class="section__sub">Click any image to zoom.</p>
+      </div>
 
-            <div class="lj-tags">
-                <span>Python</span>
-                <span>Monte Carlo</span>
-                <span>Stochastic Modelling</span>
-            </div>
+      <div class="gallery">
+        
+        <div class="gcard reveal" data-src="assets/montecarlo.png" data-title="Monte Carlo paths" data-caption="Many simulated futures from the same starting point.">
+          <img src="assets/montecarlo.png" alt="Monte Carlo paths" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Monte Carlo paths</div>
+            <div class="d">Many simulated futures from the same starting point.</div>
+          </div>
         </div>
-
-        <div class="lj-main-visual">
-            <img src="assets/Figure_2.3.png" alt="Random Walk Example">
+        
+        <div class="gcard reveal" data-src="assets/montecarlo2.png" data-title="Scenario output" data-caption="Prototype output used to validate readability.">
+          <img src="assets/montecarlo2.png" alt="Scenario output" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Scenario output</div>
+            <div class="d">Prototype output used to validate readability.</div>
+          </div>
         </div>
-
-    </div>
-</section>
-
-
-<!-- SIMULATION SNAPSHOT (two-column layout identical to the others) -->
-<!-- SNAPSHOT — CLEAN + ALIGNED WITH RISKANALYSIS -->
-<section class="ra-layout fade-in">
-
-    <div class="ra-summary">
-        <h2>Snapshot</h2>
-        <p></p>
-
-        <div class="metric-grid">
-
-            <div class="metric-card">
-                <span class="metric-mini-label">Process</span>
-                <span class="metric-title">Random Walk</span>
-                <p>Each step adds a drift and range of volatility.</p>
-            </div>
-
-            <div class="metric-card">
-                <span class="metric-mini-label">Paths</span>
-                <span class="metric-title">Hundreds</span>
-                <p>Inputed from user, can alter amount paths and total time in days, along with volatility.</p>
-            </div>
+        
+        <div class="gcard reveal" data-src="assets/vol.png" data-title="Volatility example" data-caption="Illustrates sensitivity and regime-like behavior.">
+          <img src="assets/vol.png" alt="Volatility example" loading="lazy">
+          <div class="gmeta">
+            <div class="t">Volatility example</div>
+            <div class="d">Illustrates sensitivity and regime-like behavior.</div>
+          </div>
         </div>
-    </div>
+        
+      </div>
+    </section>
 
-    <div class="ra-main-visual">
-        <div class="ra-main-card">
-            <img src="assets/Figure_2.1.png" alt="Random Walk Simulation Frame">
-            <p class="ra-main-caption">Representative simulation frame.</p>
+    <div class="hr"></div>
+
+    <section id="notes" class="section section--tight">
+      <div class="section__head">
+        <h2 class="section__title">Notes</h2>
+        <p class="section__sub">Old material preserved, rewritten for clarity.</p>
+      </div>
+
+      <div class="xp card reveal">
+        <div class="xp__row">
+          <div class="xp__role">Implementation</div>
+          <div class="xp__meta">Concise narrative</div>
         </div>
-    </div>
+        <ul class="xp__bullets">
+          <li>Built with the same typography and motion system as the homepage for a seamless experience.</li>
+          <li>Each figure answers one question; captions explain the decision insight.</li>
+          <li>Next upgrade: add a short “methods” appendix + link to source code.</li>
+        </ul>
+      </div>
 
-</section>
-
-
-<!-- VISUAL DASHBOARD (clean 3-card layout) -->
-<section class="project-gallery fade-in">
-    <h2 class="section-title">Visual Outputs</h2>
-
-    <div class="ra-fig-grid">
-
-        <div class="ra-fig-card">
-            <img src="assets/Figure_2.1.png" alt="Random Walk Ensemble">
-            <h3>Price Paths</h3>
-            <p>Simulated trajectories diverge over time, illustrating uncertainty growth.</p>
+      <footer class="footer">
+        <div>© <span id="y"></span> Jack Moloney</div>
+        <div class="footer__links">
+          <a href="index.html#projects">Projects</a>
+          <a href="mailto:jackmoloneyyy@gmail.com">Email</a>
         </div>
+      </footer>
+    </section>
+  </main>
 
-        <div class="ra-fig-card">
-            <img src="assets/Figure_2.2.png" alt="Final Distribution">
-            <h3>Final Value Distribution</h3>
-            <p>A histogram visualising the distribution of ending prices across paths.</p>
-        </div>
-
-        <div class="ra-fig-card">
-            <img src="assets/Figure_2.4.png" alt="Volatility Change">
-            <h3>Comparative Behaviour</h3>
-            <p>Comparing low-volatility and high-volatility walk configurations.</p>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- METHODOLOGY -->
-<section class="project-process fade-in">
-    <h2 class="section-title">Methodology</h2>
-
-    <div class="process-timeline">
-
-        <div class="process-step reveal">
-            <div class="process-dot"></div>
-            <div class="process-card">
-                <h3>1. Initialise</h3>
-                <p>Define number of paths, steps, starting value and volatility.</p>
-            </div>
-        </div>
-
-        <div class="process-step reveal">
-            <div class="process-dot"></div>
-            <div class="process-card">
-                <h3>2. Generate Shocks</h3>
-                <p>Apply Gaussian noise at each timestep.</p>
-            </div>
-        </div>
-
-        <div class="process-step reveal">
-            <div class="process-dot"></div>
-            <div class="process-card">
-                <h3>3. Analyse Spread</h3>
-                <p>Evaluate the distribution and behaviour of resulting price paths.</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-
-
-<!-- FOOTER -->
-<footer class="footer fade-in">
-    <p>© 2025 Jack Moloney</p>
-    <p><a href="mailto:jackmoloneyyy@gmail.com">jackmoloneyyy@gmail.com</a></p>
-    <p><a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank">Linkedin</a></p>
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
