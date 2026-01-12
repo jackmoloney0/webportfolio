@@ -1,481 +1,211 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lennard–Jones Atomic Simulation — Jack Moloney</title>
-  <meta name="description" content="Force-field modelling and visual explanation of attraction/repulsion, equilibrium distance, and energy landscapes.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Lennard-Jones Simulation — Jack Moloney</title>
+    <link rel="stylesheet" href="styles2.css">
+    <script src="homepage.js" defer></script>
 </head>
+
 <body>
-  <div class="fx" aria-hidden="true">
-    <div class="fx__grid"></div>
-    <div class="fx__grain"></div>
-    <div class="fx__vignette"></div>
-    <div class="fx__cursor"></div>
-  </div>
 
-  <header class="topbar">
-    <div class="topbar__inner">
-      <a class="brand" href="index.html#projects" aria-label="Back to projects">
-        <span class="brand__dot"></span>
-        <span class="brand__name">Jack Moloney</span>
-      </a>
+    <!-- BACK TO HOME BUTTON -->
+<a href="index.html" class="back-home-btn">← Home</a>
 
-      <nav class="nav" aria-label="Page">
-        <a class="nav__link" href="#overview">Overview</a>
-        <a class="nav__link" href="#figures">Figures</a>
-        <a class="nav__link" href="#notes">Notes</a>
-      </nav>
+<!-- FLOATING LINKEDIN BUTTON -->
+<a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank" class="floating-linkedin">
+    <img src="assets/linkedin.png" alt="LinkedIn" class="linkedin-icon">
+    <span>Linkedin</span>
+</a>
+
+<!-- HERO SECTION (Same structure as Risk Analysis) -->
+<header class="hero-area">
+    <div class="hero-content fade-in">
+        <h1 class="hero-name">Lennard-Jones Simulation</h1>
+        <p class="project-tagline">
+            Molecular Dynamics • Inter-Particle Forces • Potential Energy
+        </p>
+
+        <!-- hidden typed span (keeps homepage.js stable) -->
+        <p class="role-line project-role-line"><span id="typed"></span></p>
     </div>
-    <div class="topbar__progress" aria-hidden="true"><span id="pbar"></span></div>
-  </header>
 
-  <main id="top" class="shell page">
-    <!-- HERO / OVERVIEW -->
-    <section id="overview" class="hero hero--center">
-      <div class="hero__top">
-        <h1 class="h1 h1--centerBig">
-          Lennard – Jones <span class="h1__name">Simulation.</span>
-        </h1>
-      </div>
+    <canvas id="particle-canvas"></canvas>
+    <div class="grid-overlay"></div>
+</header>
 
-      <p class="lede hero__lede">
-        Force-field modelling and visual explanation of attraction/repulsion, equilibrium distance, and energy landscapes.
-      </p>
 
-      <div class="actions hero__actions">
-        <a class="btn btn--primary" href="#figures">View figures</a>
-        <a class="btn" href="assets/JackMoloneyCV.pdf" target="_blank" rel="noreferrer">CV</a>
-        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-      </div>
-    </section>
+<!-- MAIN FEATURED CARD (Risk-Analysis style) -->
+<section class="lj-main fade-in">
+    <div class="lj-main-card">
 
-    <div class="hr"></div>
+        <div class="lj-main-text">
+            <h2>Overview</h2>
+            <p>
+                This simulation models interacting particles  by 
+                <strong>Lennard-Jones potential</strong>.  
+                The LJ force captures both the short-range repulsion 
+                and longer-range attraction, producing realistic molecular clustering and stability.
+                <br><br>
+                The plots generated depict the impact of particle positioning, the total energy and maximum displacement of Monte Carlo moves.
+            </p>
 
-    <!-- BOXES BELOW TITLE -->
-    <section class="split">
-      <div class="note reveal">
-        <h3>What it does</h3>
+            <div class="lj-tags">
+                <span>Matlab</span>
+                <span>Intermolecular Dynamics</span>
+                <span>Chemistry</span>
+            </div>
+        </div>
+
+        <div class="lj-main-visual">
+            <img src="assets/atom.jpg" alt="Lennard-Jones System Snapshot">
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SIMULATION SNAPSHOT (COMPACT VERSION) -->
+<!-- SIMULATION SNAPSHOT (RiskAnalysis Layout) -->
+<section class="ra-layout fade-in">
+
+    <!-- LEFT SIDE — METRIC SUMMARY -->
+    <div class="ra-summary">
+
+        <h2>Snapshot</h2>
         <p>
-          Demonstrates how simple pairwise forces produce stable spacing and structure.
-          Figures document the potential curve and system evolution.
+            
         </p>
-      </div>
-      <div class="note reveal">
-        <h3>Why it matters</h3>
-        <p>
-          Shows scientific communication: making a physics model explainable through visuals,
-          not just equations.
-        </p>
-      </div>
-    </section>
 
-    <div class="hr"></div>
+        <!-- COMPACT 2×2 GRID -->
+        <div class="metric-grid ra-tight-grid">
 
-    <!-- FIGURES -->
-    <section id="figures" class="section">
-      <div class="section__head">
-        <h2 class="section__title">Figures</h2>
-        <p class="section__sub">Click any image to zoom. Drag the rail to browse.</p>
-      </div>
-
-      <div class="figs">
-        <!-- Featured figure (big, premium) -->
-        <div class="figHero reveal gcard"
-             data-src="assets/LJ_Figure1.png"
-             data-title="Potential curve"
-             data-caption="Repulsive wall + attractive well; minimum defines stability.">
-          <img src="assets/LJ_Figure1.png" alt="Potential curve" loading="lazy">
-          <div class="gmeta">
-            <div class="t">Potential curve</div>
-            <div class="d">Repulsive wall + attractive well; minimum defines stability.</div>
-          </div>
-          <div class="figHero__hint" aria-hidden="true">Click to zoom</div>
-        </div>
-
-        <!-- Horizontal snap rail -->
-        <div class="figRail" aria-label="Figure gallery">
-          <div class="figItem reveal gcard"
-               data-src="assets/LJ_Figure2.png"
-               data-title="Dynamics"
-               data-caption="Relaxation under pairwise attraction/repulsion.">
-            <img src="assets/LJ_Figure2.png" alt="Dynamics" loading="lazy">
-            <div class="gmeta">
-              <div class="t">Dynamics</div>
-              <div class="d">Relaxation under pairwise attraction/repulsion.</div>
+            <div class="metric-card">
+                <span class="metric-mini-label">Force Model</span>
+                <span class="metric-title">Lennard-Jones</span>
+                <p>Repulsive & attractive inter-particle interaction.</p>
             </div>
-          </div>
 
-          <div class="figItem reveal gcard"
-               data-src="assets/LJ_Figure5.png"
-               data-title="Simulation frame"
-               data-caption="Representative frame showing arrangement during relaxation.">
-            <img src="assets/LJ_Figure5.png" alt="Simulation frame" loading="lazy">
-            <div class="gmeta">
-              <div class="t">Simulation frame</div>
-              <div class="d">Representative frame showing arrangement during relaxation.</div>
+            <div class="metric-card">
+                <span class="metric-mini-label">Dynamics</span>
+                <span class="metric-title">Move Iteration</span>
+                <p>Numerical updates of positions & total energy.</p>
             </div>
-          </div>
 
-          <div class="figItem reveal gcard"
-               data-src="assets/LJ_Figure4.png"
-               data-title="Recorded output"
-               data-caption="Traceability: outputs captured for inspection/reporting.">
-            <img src="assets/LJ_Figure4.png" alt="Recorded output" loading="lazy">
-            <div class="gmeta">
-              <div class="t">Recorded output</div>
-              <div class="d">Traceability: outputs captured for inspection/reporting.</div>
+            <div class="metric-card">
+                <span class="metric-mini-label">Particles</span>
+                <span class="metric-title">Configurable</span>
+                <p>Supports an arbitrary number of simulated bodies (N).</p>
             </div>
-          </div>
+
+            <div class="metric-card">
+                <span class="metric-mini-label">Energy</span>
+                <span class="metric-title">Stabilising</span>
+                <p>System relaxes toward low-energy equilibrium states.</p>
+            </div>
         </div>
-      </div>
-    </section>
 
-    <div class="hr"></div>
+    </div>
 
-    <!-- NOTES -->
-    <section id="notes" class="section section--tight">
-      <div class="section__head">
-        <h2 class="section__title">Notes</h2>
-      </div>
-
-      <div class="xp card reveal">
-        <div class="xp__row">
-          <div class="xp__role">Implementation</div>
-          <div class="xp__meta">Concise narrative</div>
+    <!-- RIGHT SIDE — IMAGE -->
+    <div class="ra-main-visual">
+        <div class="ra-main-card">
+            <img src="assets/LJ_Figure5.png" alt="Lennard-Jones">
+            <p class="ra-main-caption">Representative simulation frame.</p>
         </div>
-        <ul class="xp__bullets">
-          <li>Built with the same typography and motion system as the homepage for a seamless experience.</li>
-          <li>Each figure answers one question; captions explain the decision insight.</li>
-          <li>Next upgrade: add a short “methods” appendix + link to source code.</li>
-        </ul>
-      </div>
+    </div>
 
-      <footer class="footer">
-        <div>© <span id="y"></span> Jack Moloney</div>
-        <div class="footer__links">
-          <a href="index.html#projects">Projects</a>
-          <a href="mailto:jackmoloneyyy@gmail.com">Email</a>
+</section>
+
+
+<!-- VISUAL DASHBOARD -->
+<section class="project-gallery fade-in">
+    <h2 class="section-title">Key Visuals</h2>
+
+    <div class="ra-fig-grid">
+
+        
+
+        <div class="ra-fig-card">
+            <img src="assets/LJ_Figure1.png" alt="LJ Potential Curve">
+            <h3>Lennard-Jones Potential</h3>
+            <p>
+                Characteristic LJ curve showing equilibrium distance at the minimum.
+            </p>
         </div>
-      </footer>
-    </section>
-  </main>
 
-  <script src="script.js"></script>
+        <div class="ra-fig-card">
+            <img src="assets/LJ_Figure4.png" alt="LJ Potential Curve">
+            <h3>Output File</h3>
+            <p>
+                Program neatly presents results of displacement into a an Output File.
+            </p>
+        </div>
 
-  <!-- page-only premium layout + figures system -->
-  <style>
-  /* Topbar progress (subtle, 2026) */
-  .topbar__progress{
-    height: 2px;
-    width: 100%;
-    background: rgba(255,255,255,0.06);
-    position: relative;
-    overflow: hidden;
-  }
-  #pbar{
-    display:block;
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, rgba(170,190,255,0.12), rgba(170,190,255,0.78), rgba(170,190,255,0.12));
-  }
 
-  /* HERO: true visual centering + better line balance */
-  .hero--center{
-    padding-top: 44px;     /* reduced (less “low”) */
-    padding-bottom: 12px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-  }
 
-  .hero__top{
-    width: 100%;
-    display:flex;
-    justify-content:center;
-    text-align:center;
-    margin: 22px 0 12px;   /* reduced */
-  }
+        <div class="ra-fig-card">
+            <img src="assets/LJ_Figure2.png" alt="Trajectory Evolution">
+            <h3>Dynamic Trajectories</h3>
+            <p>
+                How particles move and cluster under attractive & repulsive forces.
+            </p>
+        </div>
 
-  .h1--centerBig{
-    text-align:center;
-    font-size: clamp(78px, 9.2vw, 140px);
-    line-height: 0.88;
-    letter-spacing: -0.065em;
-    margin: 0 auto;
-    max-width: 12.5ch;       /* better balance */
-    text-wrap: balance;      /* modern “typographic” centering */
-  }
-  .h1--centerBig .h1__name{
-    font-style: italic;
-    opacity: 0.92;
-    display:inline-block;
-    padding-left: .08em;
-  }
+    </div>
+</section>
 
-  .hero__lede{
-    max-width: 72ch;
-    margin: 0;
-    opacity: 0.84;
-  }
-  .hero__actions{
-    justify-content:center;
-    margin-top: 14px;
-  }
 
-  /* Focus styling (keyboard) */
-  .figHero:focus-visible,
-  .figItem:focus-visible{
-    outline: none;
-    box-shadow:
-      0 0 0 1px rgba(170,190,255,0.28),
-      0 0 0 6px rgba(170,190,255,0.14),
-      0 28px 120px rgba(0,0,0,0.62);
-    border-color: rgba(170,190,255,0.30);
-  }
+<!-- METHODOLOGY (Risk Analysis style timeline) -->
+<section class="project-process fade-in">
+    <h2 class="section-title">How It Works</h2>
 
-  /* FIGURES: featured + rail */
-  .figs{
-    display:grid;
-    gap: 18px;
-    margin-top: 14px;
-  }
+    <div class="process-timeline">
 
-  /* Featured figure: cleaner “exhibit” presentation */
-  .figHero{
-    border-radius: 28px;
-    overflow:hidden;
-    border: 1px solid rgba(255,255,255,0.11);
-    background: rgba(255,255,255,0.03);
-    box-shadow: 0 28px 120px rgba(0,0,0,0.62);
-    position: relative;
-    cursor:pointer;
-    transform: translateZ(0);
-  }
-  .figHero img{
-    width:100%;
-    height: min(56vh, 560px);
-    object-fit: cover;
-    display:block;
-    decoding: async;
-    filter: saturate(1.08) contrast(1.07) brightness(1.06);
-    transform: scale(1.01);
-  }
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>1. Compute Forces</h3>
+                <p>
+                    For every particle pair, the Lennard-Jones formula determines repulsion or attraction
+                    based on separation distance.
+                </p>
+            </div>
+        </div>
 
-  /* subtle inner stroke + highlight (makes screenshots feel “designed”) */
-  .figHero::before,
-  .figItem::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    border-radius: inherit;
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,0.06) inset,
-      0 1px 0 rgba(255,255,255,0.05) inset;
-  }
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>2. Integrate Motion</h3>
+                <p>
+                    Updates particle velocities and positions at
+                    each timestep.
+                </p>
+            </div>
+        </div>
 
-  .figHero .gmeta{
-    padding: 16px 18px 18px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0.30));
-  }
+        <div class="process-step reveal">
+            <div class="process-dot"></div>
+            <div class="process-card">
+                <h3>3. Observe Equilibrium</h3>
+                <p>
+                    The system evolves toward lower-energy states, producing stable particle spacing
+                    and emergent structures.
+                </p>
+            </div>
+        </div>
 
-  .figHero__hint{
-    position:absolute;
-    top: 14px;
-    right: 14px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.76);
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(0,0,0,0.24);
-    backdrop-filter: blur(12px);
-    padding: 8px 10px;
-    border-radius: 999px;
-    opacity: 0;
-    transform: translateY(-4px);
-    transition: opacity 220ms ease, transform 220ms ease;
-  }
-  .figHero:hover .figHero__hint{
-    opacity: 0.9;
-    transform: translateY(0);
-  }
+    </div>
+</section>
 
-  /* Rail: better “gallery” feel */
-  .figRail{
-    display:flex;
-    gap: 14px;
-    overflow:auto;
-    padding: 2px 2px 12px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
-    cursor: grab;
-  }
-  .figRail:active{ cursor: grabbing; }
-  .figRail::-webkit-scrollbar{ height: 10px; }
-  .figRail::-webkit-scrollbar-thumb{
-    background: rgba(255,255,255,0.10);
-    border-radius: 999px;
-  }
 
-  .figItem{
-    flex: 0 0 440px;
-    scroll-snap-align: start;
-    border-radius: 22px;
-    overflow:hidden;
-    border: 1px solid rgba(255,255,255,0.11);
-    background: rgba(255,255,255,0.03);
-    box-shadow: 0 18px 70px rgba(0,0,0,0.54);
-    position: relative;
-    cursor: pointer;
-    transform: translateZ(0);
-  }
 
-  /* Consistent aspect ratio makes the rail look “curated” */
-  .figItem img{
-    width:100%;
-    height: 252px;
-    object-fit: cover;
-    display:block;
-    decoding: async;
-    filter: saturate(1.06) contrast(1.06) brightness(1.05);
-    transform: scale(1.02);
-    transition: transform 360ms cubic-bezier(.2,.9,.2,1), filter 360ms cubic-bezier(.2,.9,.2,1);
-  }
-
-  .figItem:hover img{
-    transform: scale(1.07);
-    filter: saturate(1.10) contrast(1.07) brightness(1.06);
-  }
-
-  /* Cursor spotlight (more subtle, less “gamey”) */
-  .figItem::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: radial-gradient(720px 280px at var(--mx,50%) var(--my,25%), rgba(170,190,255,0.14), transparent 56%);
-    opacity:0;
-    transition: opacity 260ms ease;
-    pointer-events:none;
-  }
-  .figItem:hover::after{ opacity:1; }
-
-  .gmeta{
-    padding: 14px 16px 16px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0.24));
-  }
-  .gmeta .t{
-    font-weight: 650;
-    letter-spacing: -0.02em;
-    font-size: 15px;
-    color: rgba(255,255,255,0.92);
-    margin-bottom: 6px;
-  }
-  .gmeta .d{
-    font-size: 13px;
-    line-height: 1.45;
-    color: rgba(255,255,255,0.66);
-  }
-
-  /* Reduced motion respect */
-  @media (prefers-reduced-motion: reduce){
-    .figItem img, .figHero__hint{ transition: none !important; }
-  }
-
-  @media (max-width: 760px){
-    .hero--center{ align-items:flex-start; text-align:left; }
-    .hero__top{ justify-content:flex-start; text-align:left; margin-top: 18px; }
-    .h1--centerBig{
-      font-size: clamp(56px, 11vw, 92px);
-      max-width: 18ch;
-      text-align:left;
-    }
-    .hero__actions{ justify-content:flex-start; }
-    .figItem{ flex-basis: 86vw; }
-    .figHero img{ height: 46vh; }
-    .topbar__progress{ display:none; }
-  }
-</style>
-
-<script>
-  // Progress bar
-  (function(){
-    const bar = document.getElementById('pbar');
-    if(!bar) return;
-    const onScroll = () => {
-      const doc = document.documentElement;
-      const scrollTop = doc.scrollTop || document.body.scrollTop;
-      const scrollHeight = doc.scrollHeight - doc.clientHeight;
-      const p = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-      bar.style.width = Math.min(100, Math.max(0, p)) + '%';
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive:true });
-  })();
-
-  // Cursor spotlight for figure cards
-  document.querySelectorAll(".figItem, .figHero").forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-      const r = card.getBoundingClientRect();
-      const mx = ((e.clientX - r.left) / r.width) * 100;
-      const my = ((e.clientY - r.top) / r.height) * 100;
-      card.style.setProperty("--mx", `${mx}%`);
-      card.style.setProperty("--my", `${my}%`);
-    });
-  });
-
-  // Keyboard activation (Enter/Space triggers click)
-  document.querySelectorAll(".figItem, .figHero").forEach(card => {
-    card.addEventListener("keydown", (e) => {
-      if(e.key === "Enter" || e.key === " "){
-        e.preventDefault();
-        card.click();
-      }
-    });
-  });
-
-  // Grab-to-scroll for the rail with drag threshold (prevents click interference)
-  (function(){
-    const rail = document.querySelector('.figRail');
-    if(!rail) return;
-
-    let down=false, startX=0, startLeft=0, dragged=false;
-
-    rail.addEventListener('mousedown', (e)=>{
-      down=true;
-      dragged=false;
-      startX=e.pageX;
-      startLeft=rail.scrollLeft;
-    });
-
-    window.addEventListener('mouseup', ()=> {
-      down=false;
-      setTimeout(()=> { dragged=false; }, 0);
-    });
-
-    window.addEventListener('mousemove', (e)=>{
-      if(!down) return;
-      const dx = e.pageX - startX;
-      if(Math.abs(dx) > 6) dragged=true;
-      if(dragged) rail.scrollLeft = startLeft - dx;
-    });
-
-    // If a drag happened, suppress click on cards inside the rail
-    rail.addEventListener('click', (e)=>{
-      if(dragged){
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }, true);
-  })();
-</script>
+<!-- FOOTER -->
+<footer class="footer fade-in">
+    <p>© 2025 Jack Moloney</p>
+    <p><a href="mailto:jackmoloneyyy@gmail.com">jackmoloneyyy@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/jackmoloneyyy" target="_blank">Linkedin</a></p>
+</footer>
 
 </body>
 </html>
